@@ -10,12 +10,14 @@
     "subClassOf": {"@id": "rdfs:subClassOf", "@type": "@id"},
 	  "range": {"@id": "rdfs:range", "@type": "@id"},
 	  "domain": {"@id": "rdfs:domain", "@type": "@id"},
-    "hasCapability": { "@id": "st:hasCapability", "@type": "@id"},
-    "hasAttribute": { "@id": "st:hasAttribute", "@type": "@id"},
-    "hasCommand": { "@id": "st:hasCommand", "@type": "@id"},
-    "hasMethod": { "@id": "st:hasMethod", "@type": "@id"},
-    "hasParameter": { "@id": "st:hasParameter", "@type": "@id"},
-    "hasAttribute": { "@id": "st:hasAttribute", "@type": "@id"},
-    "hasRepresentationFormat": { "@id": "st:hasRepresentationFormat", "@type": "@id"}
+	  "name": {"@id": "rdfs:label", "@type": "@id"},
+    "providesInteractionPattern": { "@id": "iotschema:providesInteractionPattern", "@type": "@id"},
+    "providesOutputData": { "@id": "iotschema:providesOutputData", "@type": "@id"},
+    "acceptsInputData": { "@id": "iotschema:acceptsInputData", "@type": "@id"},
+    "Capability": { "@id": "iotschema:Capability", "@type": "@id"},
+    "InteractionPattern": { "@id": "iotschema:InteractionPattern", "@type": "@id"},
+    "Action": { "@id": "iotschema:Action", "@type": "@id"},
+    "Event": { "@id": "iotschema:Event", "@type": "@id"},
+    "Property": { "@id": "iotschema:Property", "@type": "@id"}
   }
 }

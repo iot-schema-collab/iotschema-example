@@ -1,0 +1,58 @@
+
+{
+  "@context": ["http://thingschema.org/iotschema-context.jsonld",
+    {
+      "stschema": "http://thingschema.org/stschema/"
+    }
+  ],
+  "type": "LevelCapability",
+  "id": "stschema:LevelCapability",
+  "subClassOf": "Capability",
+  "description": "Level Sensing and Control Capability",
+  "providesInteractionPattern": {
+    "currentLevel": {
+      "type": "Property",
+      "name" : "currentLevel",
+      "acceptsInputData": {
+        "type": "schema:Number",
+        "schema:valueName": "currentLevel",
+        "schema:unitCode": "ucum:%"
+      },
+      "providesOutputData": {
+        "type": "schema:Number",
+        "schema:valueName": "currentLevel",
+        "schema:unitCode": "ucum:%"
+      }
+    },
+    "transitionTime": {
+      "type": "Property",
+      "name" : "transitionTime",
+      "acceptsInputData": {
+        "type": "schema:Number",
+        "schema:valueName": "transitionTime",
+        "schema:unitCode": "ucum:s"
+      },
+      "providesOutputData": {
+        "type": "schema:Number",
+        "schema:valueName": "transitionTime",
+        "schema:unitCode": "ucum:s"
+      }
+    },
+    "setLevel": {
+      "type": "Action",
+      "name": "setLevel",
+      "acceptsInputData": {
+        "targetLevel": {
+          "type": "schema:Number",
+          "schema:valueName": "targetLevel",
+          "schema:unitCode": "ucum:%"
+        },
+        "transitionTime": {
+          "type": "schema:Number",
+          "schema:valueName": "transitionTime",
+          "schema:unitCode": "ucum:s"
+        }
+      }
+    }
+  }
+}
