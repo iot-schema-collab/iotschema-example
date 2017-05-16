@@ -1,0 +1,10 @@
+
+{
+  "@context": "http://thingschema.org/iotschema-context.jsonld",
+  "type": "schema:Property",
+  "id": "iotschema:acceptsInputData",
+  "domain": "iotschema:InteractionPattern",
+  "range": "schema:schema:PropertyValue",
+  "range": "schema:schema:PropertyValueSpecification",
+  "description": "Property for Input Data from an Interaction"
+}

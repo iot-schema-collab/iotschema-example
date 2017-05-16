@@ -1,0 +1,8 @@
+
+{
+  "@context": "http://thingschema.org/iotschema-context.jsonld",
+  "type": "schema:Type",
+  "id": "iotschema:Event",
+  "subClassOf": "iotschema:InteractionPattern",
+  "description": "Event subclass of InteractionPattern"
+}
