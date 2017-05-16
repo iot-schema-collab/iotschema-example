@@ -1,0 +1,21 @@
+
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "iotschema": "http://thingschema.org/iotschema/",
+    "type": { "@id":"rdf:type", "@type": "@id"},
+    "id": { "@id":"rdf:ID", "@type": "@id"},
+    "subClassOf": {"@id": "rdfs:subClassOf", "@type": "@id"},
+	  "range": {"@id": "rdfs:range", "@type": "@id"},
+	  "domain": {"@id": "rdfs:domain", "@type": "@id"},
+    "hasCapability": { "@id": "st:hasCapability", "@type": "@id"},
+    "hasAttribute": { "@id": "st:hasAttribute", "@type": "@id"},
+    "hasCommand": { "@id": "st:hasCommand", "@type": "@id"},
+    "hasMethod": { "@id": "st:hasMethod", "@type": "@id"},
+    "hasParameter": { "@id": "st:hasParameter", "@type": "@id"},
+    "hasAttribute": { "@id": "st:hasAttribute", "@type": "@id"},
+    "hasRepresentationFormat": { "@id": "st:hasRepresentationFormat", "@type": "@id"}
+  }
+}

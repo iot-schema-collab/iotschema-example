@@ -1,0 +1,9 @@
+
+{
+  "@context": "http://thingschema.org/iotschema-context.jsonld",
+  "type": "schema:Property",
+  "id": "iotschema:providesInterctionPattern",
+  "domain": "iotschema:Capability",
+  "range": "iotschema:InteractionPattern",
+  "description": "Property for InteractionPattern"
+}
