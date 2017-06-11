@@ -1,0 +1,62 @@
+{
+  "@context": [
+    "http://thingschema.org/iotschema-context.jsonld",
+    {
+      "iotschema": "http://thingschema.org/iotschema/"
+    }
+  ],
+  "type": "SwitchCapability",
+  "id": "iotschema:SwitchCapability",
+  "subClassOf": "Capability",
+  "description": "On/Off Switch Control Capability",
+  "providesInteractionPattern": {
+    "switchstate": {
+      "type": "Property",
+      "name" : "switchstate",
+      "acceptsInputData": {
+        "type": "schema:Boolean",
+        "schema:valueName": "switchstate"
+      },
+      "providesOutputData": {
+        "type": "schema:Boolean",
+        "schema:valueName": "switchstate"
+      }
+    },
+    "transitionTime": {
+      "type": "Property",
+      "name" : "transitionTime",
+      "acceptsInputData": {
+        "type": "schema:Number",
+        "schema:valueName": "transitionTime",
+        "schema:unitCode": "ucum:s"
+      },
+      "providesOutputData": {
+        "type": "schema:Number",
+        "schema:valueName": "transitionTime",
+        "schema:unitCode": "ucum:s"
+      }
+    },
+    "turnon": {
+      "type": "Action",
+      "name": "turnon",
+      "acceptsInputData": {
+        "transitionTime": {
+          "type": "schema:Number",
+          "schema:valueName": "transitionTime",
+          "schema:unitCode": "ucum:s"
+        }
+      }
+    },
+    "turnoff": {
+      "type": "Action",
+      "name": "turnoff",
+      "acceptsInputData": {
+        "transitionTime": {
+          "type": "schema:Number",
+          "schema:valueName": "transitionTime",
+          "schema:unitCode": "ucum:s"
+        }
+      }
+    }
+  }
+}

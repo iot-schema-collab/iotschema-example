@@ -1,12 +1,12 @@
-
 {
-  "@context": ["http://thingschema.org/iotschema-context.jsonld",
+  "@context": [
+    "http://thingschema.org/iotschema-context.jsonld",
     {
-      "stschema": "http://thingschema.org/stschema/"
+      "iotschema": "http://thingschema.org/iotschema/"
     }
   ],
   "type": "LevelCapability",
-  "id": "stschema:LevelCapability",
+  "id": "iotschema:LevelCapability",
   "subClassOf": "Capability",
   "description": "Level Sensing and Control Capability",
   "providesInteractionPattern": {

@@ -1,0 +1,22 @@
+{
+  "@context": [
+    "http://thingschema.org/iotschema-context.jsonld",
+    {
+      "iotschema": "http://thingschema.org/iotschema/"
+    }
+  ],
+  "type": "MotionCapability",
+  "id": "iotschema:MotionSensingCapability",
+  "subClassOf": "Capability",
+  "description": "Motion Sensing Capability",
+  "providesInteractionPattern": {
+    "motiondetected": {
+      "type": "Property",
+      "name" : "motiondetected",
+      "providesOutputData": {
+        "type": "schema:Boolean",
+        "schema:valueName": "motiondetected"
+      }
+    }
+  }
+}
