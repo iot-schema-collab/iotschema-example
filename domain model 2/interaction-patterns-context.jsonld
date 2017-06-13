@@ -1,0 +1,79 @@
+{
+  "@context" : {
+    "StateData" : {
+      "@id" : "http://iot.schema.org/interaction-patterns#StateData"
+    },
+    "TurnOff" : {
+      "@id" : "http://iot.schema.org/interaction-patterns#TurnOff"
+    },
+    "MotionDetected" : {
+      "@id" : "http://iot.schema.org/interaction-patterns#MotionDetected"
+    },
+    "label" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "SetLevel" : {
+      "@id" : "http://iot.schema.org/interaction-patterns#SetLevel"
+    },
+    "MotionDetectedExt" : {
+      "@id" : "http://iot.schema.org/interaction-patterns#MotionDetectedExt"
+    },
+    "PropertyValue" : {
+      "@id" : "http://schema.org/PropertyValue"
+    },
+    "TransitionTime" : {
+      "@id" : "http://iot.schema.org/interaction-patterns#TransitionTime"
+    },
+    "TransitionTimeData" : {
+      "@id" : "http://iot.schema.org/interaction-patterns#TransitionTimeData"
+    },
+    "domain" : {
+      "@id" : "http://iot.schema.org/core#domain"
+    },
+    "propertyType" : {
+      "@id" : "http://schema.org/propertyType"
+    },
+    "Property" : {
+      "@id" : "http://iot.schema.org/core#Property"
+    },
+    "isObservedBy" : {
+      "@id" : "http://iot.schema.org/core#isObservedBy"
+    },
+    "hasFeatureOfInterest" : {
+      "@id" : "http://iot.schema.org/core#hasFeatureOfInterest"
+    },
+    "observedProperty" : {
+      "@id" : "http://iot.schema.org/core#observedProperty"
+    },
+    "StateDataExt" : {
+      "@id" : "http://iot.schema.org/interaction-patterns#StateDataExt"
+    },
+    "TurnOn" : {
+      "@id" : "http://iot.schema.org/interaction-patterns#TurnOn"
+    },
+    "providesOutputData" : {
+      "@id" : "http://iot.schema.org/core#providesOutputData"
+    },
+    "LevelData" : {
+      "@id" : "http://iot.schema.org/interaction-patterns#LevelData"
+    },
+    "comment" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
+    },
+    "acceptsInputData" : {
+      "@id" : "http://iot.schema.org/core#acceptsInputData"
+    },
+    "Action" : {
+      "@id" : "http://iot.schema.org/core#Action"
+    },
+    "CurrentLevel" : {
+      "@id" : "http://iot.schema.org/interaction-patterns#CurrentLevel"
+    },
+    "SwitchState" : {
+      "@id" : "http://iot.schema.org/interaction-patterns#SwitchState"
+    },
+    "unitCode" : {
+      "@id" : "http://schema.org/unitCode"
+    }
+  }
+}

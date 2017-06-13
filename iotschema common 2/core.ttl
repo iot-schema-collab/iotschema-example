@@ -1,0 +1,191 @@
+@prefix iot: <http://iot.schema.org/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+iot:Action
+  rdf:type rdfs:Class ;
+  rdfs:comment "Action subclass of InteractionPattern" ;
+  rdfs:label "Action" ;
+  rdfs:subClassOf iot:InteractionPattern ;
+.
+iot:Actuator
+  rdf:type rdfs:Class ;
+  rdfs:comment "Actuator - A device that is used to change the state of the world. " ;
+  rdfs:label "Actuator" ;
+  rdfs:subClassOf iot:Device ;
+.
+iot:Capability
+  rdf:type rdfs:Class ;
+  rdfs:comment "Capability Class" ;
+  rdfs:label "Capability" ;
+  rdfs:subClassOf schema:Thing ;
+.
+iot:Domain
+  rdf:type rdfs:Class ;
+  rdfs:comment "Specifies a domain e.g., Building domain, Mobility domain, or domain agnostic (Common domain)."^^xsd:string ;
+  rdfs:label "Domain"^^xsd:string ;
+  rdfs:subClassOf schema:Enumeration ;
+.
+iot:Event
+  rdf:type rdfs:Class ;
+  rdfs:comment "Event subclass of InteractionPattern" ;
+  rdfs:label "Event" ;
+  rdfs:subClassOf iot:InteractionPattern ;
+.
+iot:FeatureOfInterest
+  rdf:type rdfs:Class ;
+  rdfs:comment "Feature Of Interest - The thing whose property is being estimated or calculated in the course of an Observation, or whose property is being manipulated by an Actuator. " ;
+  rdfs:label "FeatureOfInterest" ;
+.
+iot:InteractionPattern
+  rdf:type rdfs:Class ;
+  rdfs:comment "General Interaction Pattern Class" ;
+  rdfs:label "Interaction Pattern" ;
+.
+iot:Property
+  rdf:type rdfs:Class ;
+  rdfs:comment "Property subclass of InteractionPattern" ;
+  rdfs:label "Property" ;
+  rdfs:subClassOf iot:InteractionPattern ;
+.
+iot:Sensor
+  rdf:type rdfs:Class ;
+  rdfs:comment "Sensor - Device, agent (including humans), or software (simulation). Sensors respond to a Stimulus, e.g., a change in the environment, data composed from the Results of prior Observations, and generate a Result." ;
+  rdfs:label "Sensor" ;
+  rdfs:subClassOf iot:Device ;
+.
+iot:acceptsInputData
+  rdf:type rdf:Property ;
+  schema:domainIncludes iot:InteractionPattern ;
+  schema:rangeIncludes schema:PropertyValue ;
+  schema:rangeIncludes schema:PropertyValueSpecification ;
+  rdfs:label "accepts input data" ;
+.
+iot:domain
+  rdf:type rdf:Property ;
+  schema:rangeIncludes iot:Domain ;
+  rdfs:comment "Specifies a domain e.g., Building domain, Mobility domain, or domain agnostic (Common domain)."^^xsd:string ;
+  rdfs:label "domain"^^xsd:string ;
+.
+iot:providesInterctionPattern
+  rdf:type rdf:Property ;
+  schema:domainIncludes iot:Capability ;
+  schema:rangeIncludes iot:InteractionPattern ;
+  rdfs:label "Property for InteractionPattern" ;
+.
+iot:providesOutputData
+  rdf:type rdf:Property ;
+  schema:domainIncludes iot:InteractionPattern ;
+  schema:rangeIncludes schema:PropertyValue ;
+  schema:rangeIncludes schema:PropertyValueSpecification ;
+  rdfs:label "Property for Output Data from an Interaction" ;
+.
+schema:Building
+  rdf:type iot:Domain ;
+  rdfs:comment "Building Domain"^^xsd:string ;
+  rdfs:label "Building"^^xsd:string ;
+.
+schema:Common
+  rdf:type iot:Domain ;
+  rdfs:comment "Horizontal Domain (Cross Domain)"^^xsd:string ;
+  rdfs:label "Common"^^xsd:string ;
+.
+schema:Mobility
+  rdf:type iot:Domain ;
+  rdfs:comment "Mobility Domain"^^xsd:string ;
+  rdfs:label "Mobility"^^xsd:string ;
+.
+iot:Device
+  rdf:type rdfs:Class ;
+  rdfs:comment "Device Class" ;
+  rdfs:label "Device" ;
+  rdfs:subClassOf schema:Thing ;
+.
+iot:resultTime
+  rdf:type rdf:Property ;
+  schema:domainIncludes iot:PropertyValue ;
+  schema:rangeIncludes schema:DateTime ;
+  rdfs:label "Result Time" ;
+  rdfs:comment "The result time is the instant of time when the Observation or Actuation activity was completed. "^^xsd:string ;
+.
+iot:phenomenonTime
+  rdf:type rdf:Property ;
+  schema:domainIncludes iot:PropertyValue ;
+  schema:rangeIncludes schema:Duration ;
+  schema:rangeIncludes schema:DateTime ;
+  rdfs:label "Phenomenon Time" ;
+  rdfs:comment "The time that the Result of an Observation or Actuation applies to the FeatureOfInterest. Not necessarily the same as the resultTime. May be an interval or an instant, or some other compound temporal entity [owl-time].  "^^xsd:string ;
+.
+iot:observes
+  rdf:type rdf:Property ;
+  schema:domainIncludes iot:Sensor ;
+  schema:rangeIncludes iot:Property ;
+  schema:rangeIncludes iot:Event ;
+  rdfs:label "Observes" ;
+  rdfs:comment "Relation between a Sensor and either a Property or an Event that it is capable of sensing."^^xsd:string ;
+.
+iot:isObservedBy
+  rdf:type rdf:Property ;
+  schema:domainIncludes iot:Property ;
+  schema:domainIncludes iot:Event ;
+  schema:rangeIncludes iot:Sensor ;
+  rdfs:label "Is Observed By" ;
+  rdfs:comment "Relation between a PropertyValue and the Sensor which is able to observe it."^^xsd:string ;
+.
+iot:forProperty
+  rdf:type rdf:Property ;
+  schema:domainIncludes iot:Actuator ;
+  schema:rangeIncludes iot:Property ;
+  schema:rangeIncludes iot:Action ;
+  rdfs:label "For Property" ;
+  rdfs:comment " Relation between an Actuator and either a Property or an Action that it is capable of actuation. "^^xsd:string ;
+.
+iot:hasFeatureOfInterest
+  rdf:type rdf:Property ;
+  schema:domainIncludes schema:PropertyValue ;
+  schema:rangeIncludes iot:FeatureOfInterest ;
+  rdfs:label "Has Feature Of Interest" ;
+  rdfs:comment " A relation between a PropertyValue and the entity whose quality was observed, or whose property was modified."^^xsd:string ;
+.
+iot:madeObservation
+  rdf:type rdf:Property ;
+  schema:domainIncludes iot:Sensor ;
+  schema:rangeIncludes schema:PropertyValue ;
+  rdfs:label "Made Observation" ;
+  rdfs:comment " Relation between a Sensor and a PropertyValue it has made. "^^xsd:string ;
+.
+iot:madeActuation
+  rdf:type rdf:Property ;
+  schema:domainIncludes iot:Actuator ;
+  schema:rangeIncludes schema:PropertyValue ;
+  rdfs:label "Made Actuation" ;
+  rdfs:comment " Relation linking a PropertyValue to the Actuator that made that Actuation. "^^xsd:string ;
+.
+iot:observedProperty
+  rdf:type rdf:Property ;
+  schema:domainIncludes iot:PropertyValue ;
+  schema:rangeIncludes schema:Property ;
+  schema:rangeIncludes schema:Event ;
+  rdfs:label "Observed Property" ;
+  rdfs:comment " Relation linking a PropertyValue to the property or Event that was observed. The Property or Event should be a property of the FeatureOfInterest (linked by hasFeatureOfInterest) of this PropertyValue. "^^xsd:string ;
+.
+iot:actsOnProperty
+  rdf:type rdf:Property ;
+  schema:domainIncludes iot:PropertyValue ;
+  schema:rangeIncludes schema:Property ;
+  schema:rangeIncludes schema:Action ;
+  rdfs:label "Acts On Property" ;
+  rdfs:comment "Relation between a PropertyValue and the Property or Action of a FeatureOfInterest it is acting upon."^^xsd:string ;
+.
+iot:isActedOnBy
+  rdf:type rdf:Property ;
+  schema:domainIncludes iot:Property ;
+  schema:domainIncludes iot:Action ;  
+  schema:rangeIncludes iot:Actuator ;
+  rdfs:label "Is Acted On By" ;
+  rdfs:comment "Relation between an Action or a Property of a FeatureOfInterest and an Actuator changing its state."^^xsd:string ;
+.

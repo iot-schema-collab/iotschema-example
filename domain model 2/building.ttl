@@ -1,0 +1,50 @@
+@prefix : <http://iot.schema.org/domain/building#> .
+@prefix building: <http://iot.schema.org/domain/building#> .
+@prefix common: <http://iot.schema.org/interaction-patterns#> .
+@prefix iot: <http://iot.schema.org/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/1.1/schema/qudt#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+building:LevelCapability
+  rdf:type rdfs:Class ;
+  iot:domain iot:Building ;
+  iot:providesInterctionPattern common:CurrentLevel ;
+  iot:providesInterctionPattern common:SetLevel ;
+  iot:providesInterctionPattern common:TransitionTime ;
+  rdfs:comment "Level Sensing and Control Capability" ;
+  rdfs:label "Level Capability" ;
+  rdfs:subClassOf iot:Capability ;
+.
+building:MotionCapatility
+  rdf:type rdfs:Class ;
+  iot:domain iot:Building ;
+  iot:providesInterctionPattern common:MotionDetection ;
+  rdfs:comment "Motion Sensing Capability"^^xsd:string ;
+  rdfs:label "Motion Sensing Capability"^^xsd:string ;
+  rdfs:subClassOf iot:Capability ;
+.
+building:MotionExtCapatility
+  rdf:type rdfs:Class ;
+  iot:domain iot:Building ;
+  iot:providesInterctionPattern common:MotionDetectedExt ;
+  rdfs:comment "Motion Sensing Capability extended with SSN/SOSA pattern for observation and actuation."^^xsd:string ;
+  rdfs:label "Motion Sensing Capability Extended"^^xsd:string ;
+  rdfs:subClassOf iot:Capability ;
+.
+building:LightSwitchCapability
+  rdf:type rdfs:Class ;
+  iot:domain iot:Building ;
+  iot:providesInterctionPattern common:SwitchState ;
+  iot:providesInterctionPattern common:TransitionTime ;
+  iot:providesInterctionPattern common:TurnOff ;
+  iot:providesInterctionPattern common:TurnOn ;
+  rdfs:comment "On/Off Switch Control Capability"^^xsd:string ;
+  rdfs:label "On/Off Switch Control Capability"^^xsd:string ;
+  rdfs:subClassOf iot:Capability ;
+.

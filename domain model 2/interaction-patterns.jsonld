@@ -1,0 +1,220 @@
+{
+  "@context": {
+    "common": "http://iot.schema.org/interaction-patterns#",
+    "iot": "http://iot.schema.org/core#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "qudt": "http://qudt.org/1.1/schema/qudt#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "common:SwitchState",
+      "@type": "rdfs:Class",
+      "iot:acceptsInputData": {
+        "@id": "common:StateData"
+      },
+      "iot:domain": {
+        "@id": "iot:Common"
+      },
+      "iot:providesOutputData": {
+        "@id": "common:StateData"
+      },
+      "rdfs:comment": "Switch state property",
+      "rdfs:label": "Switch State",
+      "rdfs:subClassOf": {
+        "@id": "iot:Property"
+      }
+    },
+    {
+      "@id": "common:TurnOn",
+      "@type": "rdfs:Class",
+      "iot:acceptsInputData": {
+        "@id": "common:TransitionTimeData"
+      },
+      "iot:domain": {
+        "@id": "iot:Common"
+      },
+      "rdfs:comment": "Turn on a Light",
+      "rdfs:label": "Light On",
+      "rdfs:subClassOf": {
+        "@id": "iot:Action"
+      }
+    },
+    {
+      "@id": "common:SetLevel",
+      "@type": "rdfs:Class",
+      "iot:acceptsInputData": [
+        {
+          "@id": "common:TransitionTimeData"
+        },
+        {
+          "@id": "common:LevelData"
+        }
+      ],
+      "iot:domain": {
+        "@id": "iot:Common"
+      },
+      "rdfs:comment": "Set level Action",
+      "rdfs:label": "Set Level Action",
+      "rdfs:subClassOf": {
+        "@id": "iot:Action"
+      }
+    },
+    {
+      "@id": "common:StateData",
+      "iot:domain": {
+        "@id": "iot:Common"
+      },
+      "rdfs:comment": "State data",
+      "rdfs:label": "State Data",
+      "rdfs:subClassOf": {
+        "@id": "schema:PropertyValue"
+      },
+      "schema:propertyType": {
+        "@id": "schema:Boolean"
+      }
+    },
+    {
+      "@id": "common:TurnOff",
+      "@type": "rdfs:Class",
+      "iot:acceptsInputData": {
+        "@id": "common:TransitionTimeData"
+      },
+      "iot:domain": {
+        "@id": "iot:Common"
+      },
+      "rdfs:comment": "Turn off a Light",
+      "rdfs:label": "Light Off",
+      "rdfs:subClassOf": {
+        "@id": "iot:Action"
+      }
+    },
+    {
+      "@id": "common:StateDataExt",
+      "iot:domain": {
+        "@id": "iot:Common"
+      },
+      "iot:hasFeatureOfInterest": {
+        "@id": "schema:Room"
+      },
+      "iot:observedProperty": {
+        "@id": "common:MotionDetected"
+      },
+      "rdfs:comment": "State data Extended with SSN/SOSA observation and actuation pattern",
+      "rdfs:label": "State Data",
+      "rdfs:subClassOf": {
+        "@id": "schema:PropertyValue"
+      },
+      "schema:propertyType": {
+        "@id": "schema:Boolean"
+      }
+    },
+    {
+      "@id": "common:MotionDetected",
+      "@type": "rdfs:Class",
+      "iot:domain": {
+        "@id": "iot:Building"
+      },
+      "iot:providesOutputData": {
+        "@id": "common:StateData"
+      },
+      "rdfs:comment": "Detects motion",
+      "rdfs:label": "Motion Detected",
+      "rdfs:subClassOf": {
+        "@id": "iot:Property"
+      }
+    },
+    {
+      "@id": "common:MotionDetectedExt",
+      "@type": "rdfs:Class",
+      "iot:domain": {
+        "@id": "iot:Building"
+      },
+      "iot:isObservedBy": {
+        "@id": "iot:Sensor"
+      },
+      "iot:providesOutputData": {
+        "@id": "common:StateDataExt"
+      },
+      "rdfs:comment": "Motion detection property extended with SSN/SOSA observation and actuation pattern",
+      "rdfs:label": "Motion Detected",
+      "rdfs:subClassOf": {
+        "@id": "iot:Property"
+      }
+    },
+    {
+      "@id": "common:TransitionTime",
+      "@type": "rdfs:Class",
+      "iot:acceptsInputData": {
+        "@id": "common:TransitionTimeData"
+      },
+      "iot:domain": {
+        "@id": "iot:Common"
+      },
+      "iot:providesOutputData": {
+        "@id": "common:TransitionTimeData"
+      },
+      "rdfs:comment": "Transition time property",
+      "rdfs:label": "Transition Time",
+      "rdfs:subClassOf": {
+        "@id": "iot:Property"
+      }
+    },
+    {
+      "@id": "common:LevelData",
+      "iot:domain": {
+        "@id": "iot:Common"
+      },
+      "rdfs:comment": "Level data",
+      "rdfs:label": "Level Data",
+      "rdfs:subClassOf": {
+        "@id": "schema:PropertyValue"
+      },
+      "schema:propertyType": {
+        "@id": "schema:Number"
+      },
+      "schema:unitCode": {
+        "@id": "qudt:Percent"
+      }
+    },
+    {
+      "@id": "common:TransitionTimeData",
+      "iot:domain": {
+        "@id": "iot:Common"
+      },
+      "rdfs:comment": "Transition time data",
+      "rdfs:label": "Transition Time Data",
+      "rdfs:subClassOf": {
+        "@id": "schema:PropertyValue"
+      },
+      "schema:propertyType": {
+        "@id": "schema:Number"
+      },
+      "schema:unitCode": {
+        "@id": "qudt:SecondTime"
+      }
+    },
+    {
+      "@id": "common:CurrentLevel",
+      "@type": "rdfs:Class",
+      "iot:acceptsInputData": {
+        "@id": "common:LevelData"
+      },
+      "iot:domain": {
+        "@id": "iot:Common"
+      },
+      "iot:providesOutputData": {
+        "@id": "common:LevelData"
+      },
+      "rdfs:comment": "Current level property",
+      "rdfs:label": "Current Level",
+      "rdfs:subClassOf": {
+        "@id": "iot:Property"
+      }
+    }
+  ]
+}
+

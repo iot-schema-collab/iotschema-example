@@ -1,0 +1,61 @@
+{
+  "@context" : {
+    "Common" : {
+      "@id" : "http://schema.org/Common"
+    },
+    "Thing" : {
+      "@id" : "http://schema.org/Thing"
+    },
+    "FeatureOfInterest" : {
+      "@id" : "http://iot.schema.org/core#FeatureOfInterest"
+    },
+    "domainIncludes" : {
+      "@id" : "http://schema.org/domainIncludes"
+    },
+    "label" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "Mobility" : {
+      "@id" : "http://schema.org/Mobility"
+    },
+    "Event" : {
+      "@id" : "http://iot.schema.org/core#Event"
+    },
+    "Domain" : {
+      "@id" : "http://iot.schema.org/core#Domain"
+    },
+    "Building" : {
+      "@id" : "http://schema.org/Building"
+    },
+    "Capability" : {
+      "@id" : "http://iot.schema.org/core#Capability"
+    },
+    "rangeIncludes" : {
+      "@id" : "http://schema.org/rangeIncludes"
+    },
+    "Property" : {
+      "@id" : "http://iot.schema.org/core#Property"
+    },
+    "InteractionPattern" : {
+      "@id" : "http://iot.schema.org/core#InteractionPattern"
+    },
+    "Actuator" : {
+      "@id" : "http://iot.schema.org/core#Actuator"
+    },
+    "Enumeration" : {
+      "@id" : "http://schema.org/Enumeration"
+    },
+    "comment" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
+    },
+    "Device" : {
+      "@id" : "http://iot.schema.org/core#Device"
+    },
+    "Action" : {
+      "@id" : "http://iot.schema.org/core#Action"
+    },
+    "Sensor" : {
+      "@id" : "http://iot.schema.org/core#Sensor"
+    }
+  }
+}

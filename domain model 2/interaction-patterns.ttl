@@ -1,0 +1,115 @@
+@prefix common: <http://iot.schema.org/interaction-patterns#> .
+@prefix iot: <http://iot.schema.org/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/1.1/schema/qudt#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+common:CurrentLevel
+  rdf:type rdfs:Class ;
+  iot:acceptsInputData common:LevelData ;
+  iot:providesOutputData common:LevelData ;
+  iot:domain iot:Common ;
+  rdfs:comment "Current level property" ;
+  rdfs:label "Current Level" ;
+  rdfs:subClassOf iot:Property ;
+.
+common:LevelData
+  schema:propertyType schema:Number ;
+  schema:unitCode qudt:Percent ;
+  iot:domain iot:Common ;
+  rdfs:comment "Level data" ;
+  rdfs:label "Level Data" ;
+  rdfs:subClassOf schema:PropertyValue ;
+.
+common:MotionDetected
+  rdf:type rdfs:Class ;
+  iot:domain iot:Building ;
+  iot:providesOutputData common:StateData ;
+  rdfs:comment "Detects motion"^^xsd:string ;
+  rdfs:label "Motion Detected"^^xsd:string ;
+  rdfs:subClassOf iot:Property ;
+.
+common:MotionDetectedExt
+  rdf:type rdfs:Class ;
+  iot:domain iot:Building ;
+  iot:providesOutputData common:StateDataExt ;
+  rdfs:comment "Motion detection property extended with SSN/SOSA observation and actuation pattern"^^xsd:string ;
+  rdfs:label "Motion Detected"^^xsd:string ;
+  rdfs:subClassOf iot:Property ;
+.
+common:SetLevel
+  rdf:type rdfs:Class ;
+  iot:domain iot:Common ;
+  iot:acceptsInputData common:LevelData ;
+  iot:acceptsInputData common:TransitionTimeData ;
+  rdfs:comment "Set level Action" ;
+  rdfs:label "Set Level Action" ;
+  rdfs:subClassOf iot:Action ;
+.
+common:StateData
+  schema:propertyType schema:Boolean ;
+  iot:domain iot:Common ;
+  rdfs:comment "State data" ;
+  rdfs:label "State Data" ;
+  rdfs:subClassOf schema:PropertyValue ;
+.
+common:StateDataExt
+  schema:propertyType schema:Boolean ;
+  iot:domain iot:Common ;
+  rdfs:comment "State data Extended with SSN/SOSA observation and actuation pattern" ;
+  rdfs:label "State Data" ;
+  rdfs:subClassOf schema:PropertyValue ;
+.
+common:SwitchState
+  rdf:type rdfs:Class ;
+  iot:domain iot:Common ;
+  iot:acceptsInputData common:StateData ;
+  iot:providesOutputData common:StateData ;
+  rdfs:comment "Switch state property" ;
+  rdfs:label "Switch State" ;
+  rdfs:subClassOf iot:Property ;
+.
+common:TransitionTime
+  rdf:type rdfs:Class ;
+  iot:domain iot:Common ;
+  iot:acceptsInputData common:TransitionTimeData ;
+  iot:providesOutputData common:TransitionTimeData ;
+  rdfs:comment "Transition time property" ;
+  rdfs:label "Transition Time" ;
+  rdfs:subClassOf iot:Property ;
+.
+common:TransitionTimeData
+  schema:propertyType schema:Number ;
+  iot:domain iot:Common ;
+  schema:unitCode qudt:SecondTime ;
+  rdfs:comment "Transition time data" ;
+  rdfs:label "Transition Time Data" ;
+  rdfs:subClassOf schema:PropertyValue ;
+.
+common:TurnOff
+  rdf:type rdfs:Class ;
+  iot:domain iot:Common ;
+  iot:acceptsInputData common:TransitionTimeData ;
+  rdfs:comment "Turn off a Light"^^xsd:string ;
+  rdfs:label "Light Off"^^xsd:string ;
+  rdfs:subClassOf iot:Action ;
+.
+common:TurnOn
+  rdf:type rdfs:Class ;
+  iot:domain iot:Common ;
+  iot:acceptsInputData common:TransitionTimeData ;
+  rdfs:comment "Turn on a Light"^^xsd:string ;
+  rdfs:label "Light On"^^xsd:string ;
+  rdfs:subClassOf iot:Action ;
+.
+common:MotionDetectedExt
+  iot:isObservedBy iot:Sensor ;
+.
+common:StateDataExt
+  iot:hasFeatureOfInterest schema:Room ;
+  iot:observedProperty common:MotionDetected ;
+.
