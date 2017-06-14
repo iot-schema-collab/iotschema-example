@@ -10,17 +10,17 @@
   "subClassOf": "Capability",
   "description": "Level Sensing and Control Capability",
   "providesInteractionPattern": {
-    "currentLevel": {
+    "level": {
       "type": "Property",
-      "name" : "currentLevel",
+      "name" : "level",
       "acceptsInputData": {
         "type": "schema:Number",
-        "schema:valueName": "currentLevel",
+        "schema:valueName": "level",
         "schema:unitCode": "ucum:%"
       },
       "providesOutputData": {
         "type": "schema:Number",
-        "schema:valueName": "currentLevel",
+        "schema:valueName": "level",
         "schema:unitCode": "ucum:%"
       }
     },
@@ -38,13 +38,13 @@
         "schema:unitCode": "ucum:s"
       }
     },
-    "setLevel": {
+    "moveToLevel": {
       "type": "Action",
-      "name": "setLevel",
+      "name": "moveToLevel",
       "acceptsInputData": {
-        "targetLevel": {
+        "level": {
           "type": "schema:Number",
-          "schema:valueName": "targetLevel",
+          "schema:valueName": "level",
           "schema:unitCode": "ucum:%"
         },
         "transitionTime": {
