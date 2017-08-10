@@ -1,0 +1,68 @@
+{
+  "@context" : [
+	{
+    "qudt": "http://qudt.org/1.1/schema/qudt#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"	
+  }],
+      "@id": "LevelCapability",
+      "@type": "rdfs:Class",
+	  "rdfs:subClassOf": { "@id": "Capability" },
+      "rdfs:comment": "Level Sensing and Control Capability",
+      "rdfs:label": "Level Capability",	  
+      "domain": {"@id": "Common"},
+      "providesInterctionPattern": [
+        {
+          "@id": "CurrentLevel",
+		  "@type": "rdfs:Class",
+          "acceptsInputData": { "@id": "LevelData" },
+          "domain": { "@id": "Common" },
+          "providesOutputData": {
+		   "@id": "LevelData",
+           "domain": { "@id": "Common" },
+           "rdfs:comment": "Level data",
+           "rdfs:label": "Level Data",
+           "rdfs:subClassOf": { "@id": "schema:PropertyValue" },
+           "schema:propertyType": { "@id": "schema:Number" },
+           "schema:unitCode": { "@id": "qudt:Percent" }
+		  },
+          "rdfs:comment": "Current level property",
+          "rdfs:label": "Current Level",
+          "rdfs:subClassOf": { "@id": "Property" }
+        },
+        {
+          "@id": "TransitionTime",
+          "@type": "rdfs:Class",
+          "acceptsInputData": { 
+		      "@id": "TransitionTimeData",
+		  	  "domain": { "@id": "Common" },
+			  "rdfs:comment": "Transition time data",
+			  "rdfs:label": "Transition Time Data",
+			  "rdfs:subClassOf": { "@id": "schema:PropertyValue" },
+			  "schema:propertyType": { "@id": "schema:Number" },
+			  "schema:unitCode": { "@id": "qudt:SecondTime" }
+		  },
+          "domain": { "@id": "Common" },
+          "providesOutputData": { 
+			  "@id": "TransitionTimeData"
+			},
+          "rdfs:comment": "Transition time property",
+          "rdfs:label": "Transition Time",
+          "rdfs:subClassOf": { "@id": "Property" }		  
+        },
+        {
+          "@id": "SetLevel",
+		  "@type": "rdfs:Class",
+          "acceptsInputData": [
+          { "@id": "TransitionTimeData" },
+          { "@id": "LevelData" }
+          ],
+          "domain": { "@id": "Common" },
+          "rdfs:comment": "Set level Action",
+          "rdfs:label": "Set Level Action",
+          "rdfs:subClassOf": { "@id": "common:Action" }
+        }
+      ]
+}
