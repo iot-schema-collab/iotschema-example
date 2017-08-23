@@ -1,0 +1,150 @@
+# baseURI: http://iot.schema.org/domain/shapes
+# imports: file:/C:/Users/z003j0hn/Work/git_repositories/siemens/siemens-semantic-models/iot.schema.org/common/core.ttl
+# imports: file:/C:/Users/z003j0hn/Work/git_repositories/siemens/siemens-semantic-models/iot.schema.org/common/interaction-patterns.ttl
+# imports: http://data.nasa.gov/qudt/owl/unit
+# imports: http://data.qudt.org/qudt/owl/1.0.0/unit.owl
+# imports: http://datashapes.org/dash
+# imports: http://iot.schema.org/domain/building
+# imports: http://topbraid.org/schema/schema-single-range
+# prefix: shapes
+
+@prefix building: <http://iot.schema.org/domain/building#> .
+@prefix common: <http://iot.schema.org/interaction-patterns#> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix iot: <http://iot.schema.org/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix p1: <http://example.org/file1#> .
+@prefix p2: <http://example.org/file2#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <http://iot.schema.org/domain/shapes#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://iot.schema.org/common#CurrentLevel>
+  rdf:type sh:Shape ;
+  sh:property [
+      sh:class common:LevelData ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:predicate iot:acceptsInputData ;
+    ] ;
+  sh:property [
+      sh:class common:LevelData ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:predicate iot:providesOutputData ;
+    ] ;
+.
+building:Lamp
+  rdf:type building:LevelCapability ;
+  iot:domain iot:Common ;
+  iot:providesInteractionPattern common:CurrentLevel_1 ;
+  iot:providesInteractionPattern common:SetLevel_2 ;
+  iot:providesInteractionPattern common:TransitionTime_1 ;
+  rdfs:label "Lamp"^^xsd:string ;
+.
+building:LevelCapability
+  rdf:type sh:Shape ;
+  sh:property [
+      sh:hasValue iot:Common ;
+      sh:nodeKind sh:IRI ;
+      sh:predicate iot:domain ;
+    ] ;
+  sh:property [
+  sh:nodeKind sh:IRI ;
+  sh:predicate iot:providesInteractionPattern ;
+  sh:maxCount 3 ;
+  sh:minCount 3 ;
+  sh:classIn (
+      common:CurrentLevel
+      common:SetLevel
+      common:TransitionTime
+    ) ;
+].
+
+.
+<http://iot.schema.org/domain/shapes>
+  rdf:type owl:Ontology ;
+  owl:imports <file:/C:/Users/z003j0hn/Work/git_repositories/siemens/siemens-semantic-models/iot.schema.org/common/core.ttl> ;
+  owl:imports <file:/C:/Users/z003j0hn/Work/git_repositories/siemens/siemens-semantic-models/iot.schema.org/common/interaction-patterns.ttl> ;
+  owl:imports <http://data.nasa.gov/qudt/owl/unit> ;
+  owl:imports <http://data.qudt.org/qudt/owl/1.0.0/unit.owl> ;
+  owl:imports <http://datashapes.org/dash> ;
+  owl:imports <http://iot.schema.org/domain/building> ;
+  owl:imports <http://topbraid.org/schema/schema-single-range> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+common:CurrentLevel_1
+  rdf:type <http://iot.schema.org/common#CurrentLevel> ;
+  iot:acceptsInputData common:LevelData_1 ;
+  iot:providesOutputData common:LevelData_1 ;
+  rdfs:label "Current level 1"^^xsd:string ;
+.
+common:LevelData
+  rdf:type sh:Shape ;
+  sh:property [
+      sh:datatype schema:Number ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:predicate schema:propertyType ;
+    ] ;
+  sh:property [
+      sh:hasValue "unit:Percent"^^xsd:anyURI ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:predicate schema:unitCode ;
+    ] ;
+.
+common:LevelData_1
+  rdf:type common:LevelData ;
+  schema:propertyType schema:Number ;
+  schema:unitCode "unit:Percent"^^xsd:anyURI ;
+  schema:value "10"^^xsd:float ;
+  rdfs:label "Level data 1"^^xsd:string ;
+.
+common:SetLevel_2
+  rdf:type <http://iot.schema.org/common#SetLevel> ;
+  rdfs:label "Set level 2"^^xsd:string ;
+.
+common:TransitionTime
+  rdf:type sh:Shape ;
+  rdfs:subClassOf <http://iot.schema.org/common#Property> ;
+  sh:property [
+      sh:class common:TransitionTimeData ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:predicate iot:acceptsInputData ;
+    ] ;
+  sh:property [
+      sh:class common:TransitionTimeData ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:predicate iot:providesOutputData ;
+    ] ;
+.
+common:TransitionTimeData
+  rdf:type sh:Shape ;
+  sh:property [
+      sh:class schema:Number ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+      sh:predicate schema:propertyType ;
+    ] ;
+  sh:property [
+      sh:hasValue "unit:SecondTime"^^xsd:anyURI ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:predicate schema:unitCode ;
+    ] ;
+.
+common:TransitionTime_1
+  rdf:type common:TransitionTime ;
+  rdfs:label "Transition time 1"^^xsd:string ;
+.
+<http://schema.org/10>
+  rdf:type schema:Number ;
+  rdfs:label ""^^xsd:string ;
+.
