@@ -7,6 +7,7 @@
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "schema": "http://schema.org/",
+    "unit": "http://data.nasa.gov/qudt/owl/unit#",
     "xsd": "http://www.w3.org/2001/XMLSchema#"
   },
   "@graph": [
@@ -65,6 +66,7 @@
     },
     {
       "@id": "common:StateData",
+      "@type": "rdfs:Class",
       "iot:domain": {
         "@id": "iot:Common"
       },
@@ -94,6 +96,7 @@
     },
     {
       "@id": "common:StateDataExt",
+      "@type": "rdfs:Class",
       "iot:domain": {
         "@id": "iot:Common"
       },
@@ -165,6 +168,7 @@
     },
     {
       "@id": "common:LevelData",
+      "@type": "rdfs:Class",
       "iot:domain": {
         "@id": "iot:Common"
       },
@@ -177,11 +181,12 @@
         "@id": "schema:Number"
       },
       "schema:unitCode": {
-        "@id": "qudt:Percent"
+        "@id": "unit:Percent"
       }
     },
     {
       "@id": "common:TransitionTimeData",
+      "@type": "rdfs:Class",
       "iot:domain": {
         "@id": "iot:Common"
       },
@@ -194,7 +199,7 @@
         "@id": "schema:Number"
       },
       "schema:unitCode": {
-        "@id": "qudt:SecondTime"
+        "@id": "unit:SecondTime"
       }
     },
     {
@@ -217,4 +222,3 @@
     }
   ]
 }
-
