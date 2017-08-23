@@ -7,6 +7,7 @@
 @prefix schema: <http://schema.org/> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix unit: <http://data.nasa.gov/qudt/owl/unit#> .
 
 common:CurrentLevel
   rdf:type rdfs:Class ;
@@ -18,8 +19,9 @@ common:CurrentLevel
   rdfs:subClassOf iot:Property ;
 .
 common:LevelData
+  rdf:type rdfs:Class ;
   schema:propertyType schema:Number ;
-  schema:unitCode qudt:Percent ;
+  schema:unitCode unit:Percent ;
   iot:domain iot:Common ;
   rdfs:comment "Level data" ;
   rdfs:label "Level Data" ;
@@ -51,6 +53,7 @@ common:SetLevel
   rdfs:subClassOf iot:Action ;
 .
 common:StateData
+  rdf:type rdfs:Class ;
   schema:propertyType schema:Boolean ;
   iot:domain iot:Common ;
   rdfs:comment "State data" ;
@@ -58,6 +61,7 @@ common:StateData
   rdfs:subClassOf schema:PropertyValue ;
 .
 common:StateDataExt
+  rdf:type rdfs:Class ;
   schema:propertyType schema:Boolean ;
   iot:domain iot:Common ;
   rdfs:comment "State data Extended with SSN/SOSA observation and actuation pattern" ;
@@ -83,9 +87,10 @@ common:TransitionTime
   rdfs:subClassOf iot:Property ;
 .
 common:TransitionTimeData
+  rdf:type rdfs:Class ;
   schema:propertyType schema:Number ;
   iot:domain iot:Common ;
-  schema:unitCode qudt:SecondTime ;
+  schema:unitCode unit:SecondTime ;
   rdfs:comment "Transition time data" ;
   rdfs:label "Transition Time Data" ;
   rdfs:subClassOf schema:PropertyValue ;
