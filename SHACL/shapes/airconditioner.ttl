@@ -1,9 +1,3 @@
-# baseURI: http://ureasoner.org/ruleschema
-# imports: http://datashapes.org/dash
-# imports: http://example.org/td-data-types
-# imports: http://iot.linkeddata.es/def/wot#
-# prefix: ruleschema
-
 @prefix dash: <http://datashapes.org/dash#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
