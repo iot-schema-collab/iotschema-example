@@ -1,0 +1,104 @@
+{
+    "@context": [
+        "https://w3c.github.io/wot/w3c-wot-td-context.jsonld",
+        {
+            "iot": "http://iotschema.org/"
+        }
+    ],
+    "name": "AirConditioner",
+    "@type": [
+        "Thing",
+        "iot:AirConditioner"
+    ],
+    "base": "",
+    "domain": [
+        "iot:Home"
+    ],
+    "interaction": [
+        {
+            "name": "BinarySwitch",
+            "@type": [
+                "Property",
+                "iot:BinarySwitch"
+            ],
+            "observable": false,
+            "schema": "Toggle",
+            "writable": true,
+            "form": [
+                {
+                    "href": "",
+                    "mediaType": ""
+                }
+            ]
+        },
+        {
+            "name": "RunMode",
+            "@type": [
+                "Property",
+                "iot:RunMode"
+            ],
+            "observable": false,
+            "schema": {
+                "RunModeData": {
+                    "type": "string",
+                    "enum": [
+                        "iot:CoolMode",
+                        "iot:FanMode",
+                        "iot:DryMode",
+                        "iot:EnergyOrPowerSaverMode",
+                        "iot:SleepMode"
+                    ]
+                }
+            },
+            "writable": true,
+            "form": [
+                {
+                    "href": "",
+                    "mediaType": ""
+                }
+            ]
+        },
+        {
+            "name": "TargetTemperature",
+            "@type": [
+                "Property",
+                "iot:TargetTemperature"
+            ],
+            "observable": false,
+            "schema": {
+                "type": "number",
+                "minimum": 5,
+                "maximum": 35,
+                "unit": "iot:Celsius"
+            },
+            "writable": true,
+            "form": [
+                {
+                    "href": "",
+                    "mediaType": ""
+                }
+            ]
+        },
+        {
+            "name": "Temperature",
+            "@type": [
+                "Property",
+                "iot:Temperature"
+            ],
+            "observable": false,
+            "schema": {
+                "type": "number",
+                "minimum": 5,
+                "maximum": 35,
+                "unit": "iot:Celsius"
+            },
+            "writable": false,
+            "form": [
+                {
+                    "href": "",
+                    "mediaType": ""
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,170 @@
+# baseURI: http://ureasoner.org/ruleschema
+# imports: http://datashapes.org/dash
+# imports: http://example.org/td-data-types
+# imports: http://iot.linkeddata.es/def/wot#
+# prefix: ruleschema
+
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix td: <http://iot.linkeddata.es/def/wot#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://iotschema.org/> .
+@prefix schema: <http://schema.org/> .
+
+:AirConditionerShape
+    a sh:NodeShape ;
+    sh:targetClass :AirConditioner ;
+  sh:property [
+      sh:path :providesInteractionPattern ;
+      sh:minCount 1 ;
+	  sh:in (:TurnOn :TurnOff :RunMode :TargetTemperature :Temperature) ;
+    ] ;
+  sh:property [
+      sh:path :domain ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+	  sh:in ( :Home ) ;
+    ] ;
+.
+
+
+:TurnOnShape
+    a sh:NodeShape ;
+    sh:targetClass :TurnOn ;
+  sh:property [
+      sh:path :acceptsInputData ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+	  sh:datatype xsd:boolean ;
+    ] ;		
+  sh:property [
+      sh:path rdfs:subClassOf ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:class :Action ;
+    ] ;	
+.
+
+:TurnOffShape
+    a sh:NodeShape ;
+    sh:targetClass :TurnOff ;
+  sh:property [
+      sh:path :acceptsInputData ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+	  sh:datatype xsd:boolean ;
+    ] ;	
+  sh:property [
+      sh:path rdfs:subClassOf ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:class :Action ;
+    ] ;	
+.
+
+:RunModeShape
+    a sh:NodeShape ;
+    sh:targetClass :RunMode ;
+  sh:property [
+      sh:path :acceptsInputData ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+	  sh:in ( :RunModeData ) ;
+    ] ;
+  sh:property [
+      sh:path :providesOutputData ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+	  sh:in ( :RunModeData ) ;
+    ] ;	
+  sh:property [
+      sh:path rdfs:subClassOf ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:class :Property ;
+    ] ;	
+  sh:property [
+      sh:path :observable ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+	  sh:datatype false ;
+    ] ;		
+.
+
+:RunModeDataShape
+    a sh:NodeShape ;
+    sh:targetClass :RunModeData ;
+  sh:property [
+      sh:path schema:propertyType ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+	  sh:in ( :CoolMode :FanMode :DryMode :EnergyOrPowerSaverMode :SleepMode ) ;
+    ] ;
+.
+
+:TemperatureShape
+    a sh:NodeShape ;
+    sh:targetClass :Temperature ;
+  sh:property [
+      sh:path :providesOutputData ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+	  sh:in ( :TemperatureData ) ;
+    ] ;	
+  sh:property [
+      sh:path rdfs:subClassOf ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:class :Property ;
+    ] ;	
+  sh:property [
+      sh:path :observable ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+	  sh:datatype false ;
+    ] ;		
+.
+
+:TargetTemperatureShape
+    a sh:NodeShape ;
+    sh:targetClass :TargetTemperature ;
+  sh:property [
+      sh:path :acceptsInputData ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+	  sh:in ( :TemperatureData ) ;
+    ] ;	
+  sh:property [
+      sh:path :providesOutputData ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+	  sh:in ( :TemperatureData ) ;
+    ] ;	
+  sh:property [
+      sh:path rdfs:subClassOf ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:class :Property ;
+    ] ;	
+  sh:property [
+      sh:path :observable ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+	  sh:datatype false ;
+    ] ;		
+.
+
+:TemperatureDataShape
+    a sh:NodeShape ;
+    sh:targetClass :TemperatureData ;
+    sh:property [
+		sh:path schema:propertyType ;
+		sh:minInclusive 5.0 ;
+		sh:maxInclusive 35.0 ;
+		sh:datatype xsd:float ;
+		schema:unitCode :Celsius
+    ]		
+.

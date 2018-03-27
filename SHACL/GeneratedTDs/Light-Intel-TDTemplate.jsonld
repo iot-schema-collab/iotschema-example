@@ -1,0 +1,63 @@
+{
+    "@context": [
+        "https://w3c.github.io/wot/w3c-wot-td-context.jsonld",
+        {
+            "iot": "http://iotschema.org/"
+        }
+    ],
+    "name": "LightControl",
+    "@type": [
+        "Thing",
+        "iot:LightControl"
+    ],
+    "base": "",
+    "domain": [
+        "iot:Building"
+    ],
+    "interaction": [
+        {
+            "name": "SwitchStatus",
+            "@type": [
+                "Property",
+                "iot:SwitchStatus"
+            ],
+            "observable": false,
+            "schema": "boolean",
+            "writable": false,
+            "form": [
+                {
+                    "href": "",
+                    "mediaType": ""
+                }
+            ]
+        },
+        {
+            "name": "TurnOn",
+            "@type": [
+                "Action",
+                "iot:TurnOn"
+            ],
+            "inputSchema": "boolean",
+            "form": [
+                {
+                    "href": "",
+                    "mediaType": ""
+                }
+            ]
+        },
+        {
+            "name": "TurnOff",
+            "@type": [
+                "Action",
+                "iot:TurnOff"
+            ],
+            "inputSchema": "boolean",
+            "form": [
+                {
+                    "href": "",
+                    "mediaType": ""
+                }
+            ]
+        }
+    ]
+}

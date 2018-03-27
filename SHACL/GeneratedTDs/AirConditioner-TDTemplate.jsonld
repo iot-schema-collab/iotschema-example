@@ -1,0 +1,119 @@
+{
+    "@context": [
+        "https://w3c.github.io/wot/w3c-wot-td-context.jsonld",
+        {
+            "iot": "http://iotschema.org/"
+        }
+    ],
+    "name": "AirConditioner",
+    "@type": [
+        "Thing",
+        "iot:AirConditioner"
+    ],
+    "base": "",
+    "domain": [
+        "iot:Home"
+    ],
+    "interaction": [
+        {
+            "name": "TurnOn",
+            "@type": [
+                "Action",
+                "iot:TurnOn"
+            ],
+            "inputSchema": "boolean",
+            "form": [
+                {
+                    "href": "",
+                    "mediaType": ""
+                }
+            ]
+        },
+        {
+            "name": "TurnOff",
+            "@type": [
+                "Action",
+                "iot:TurnOff"
+            ],
+            "inputSchema": "boolean",
+            "form": [
+                {
+                    "href": "",
+                    "mediaType": ""
+                }
+            ]
+        },
+        {
+            "name": "RunMode",
+            "@type": [
+                "Property",
+                "iot:RunMode"
+            ],
+            "observable": false,
+            "schema": {
+                "field": {
+                    "type": "string",
+                    "enum": [
+                        "iot:CoolMode",
+                        "iot:FanMode",
+                        "iot:DryMode",
+                        "iot:EnergyOrPowerSaverMode",
+                        "iot:SleepMode"
+                    ]
+                },
+                "@type": "iot:RunModeData"
+            },
+            "writable": true,
+            "form": [
+                {
+                    "href": "",
+                    "mediaType": ""
+                }
+            ]
+        },
+        {
+            "name": "TargetTemperature",
+            "@type": [
+                "Property",
+                "iot:TargetTemperature"
+            ],
+            "observable": false,
+            "schema": {
+                "type": "number",
+                "minimum": 5,
+                "maximum": 35,
+                "unit": "iot:Celsius",
+                "@type": "iot:TemperatureData"
+            },
+            "writable": true,
+            "form": [
+                {
+                    "href": "",
+                    "mediaType": ""
+                }
+            ]
+        },
+        {
+            "name": "Temperature",
+            "@type": [
+                "Property",
+                "iot:Temperature"
+            ],
+            "observable": false,
+            "schema": {
+                "type": "number",
+                "minimum": 5,
+                "maximum": 35,
+                "unit": "iot:Celsius",
+                "@type": "iot:TemperatureData"
+            },
+            "writable": false,
+            "form": [
+                {
+                    "href": "",
+                    "mediaType": ""
+                }
+            ]
+        }
+    ]
+}
