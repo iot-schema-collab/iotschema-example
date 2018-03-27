@@ -1,0 +1,187 @@
+{
+  "@context": {
+    "dash": "http://datashapes.org/dash#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "td": "http://www.w3.org/ns/td#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "_:ub81bL46C15",
+      "sh:datatype": false,
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/observable"
+      }
+    },
+    {
+      "@id": "_:ub81bL18C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "http://iotschema.org/SwitchStatus"
+          },
+          {
+            "@id": "http://iotschema.org/TurnOn"
+          },
+          {
+            "@id": "http://iotschema.org/TurnOff"
+          }
+        ]
+      },
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/providesInteractionPattern"
+      }
+    },
+    {
+      "@id": "_:ub81bL40C15",
+      "sh:class": {
+        "@id": "http://iotschema.org/Property"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "rdfs:subClassOf"
+      }
+    },
+    {
+      "@id": "_:ub81bL74C15",
+      "sh:datatype": {
+        "@id": "xsd:boolean"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/acceptsInputData"
+      }
+    },
+    {
+      "@id": "http://iotschema.org/Light",
+      "@type": "sh:NodeShape",
+      "sh:property": [
+        {
+          "@id": "_:ub81bL18C15"
+        },
+        {
+          "@id": "_:ub81bL23C15"
+        }
+      ],
+      "sh:targetClass": {
+        "@id": "http://iotschema.org/LightControl"
+      }
+    },
+    {
+      "@id": "_:ub81bL63C15",
+      "sh:class": {
+        "@id": "http://iotschema.org/Action"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "rdfs:subClassOf"
+      }
+    },
+    {
+      "@id": "http://iotschema.org/TurnOffShape",
+      "@type": "sh:NodeShape",
+      "sh:property": [
+        {
+          "@id": "_:ub81bL74C15"
+        },
+        {
+          "@id": "_:ub81bL80C15"
+        }
+      ],
+      "sh:targetClass": {
+        "@id": "http://iotschema.org/TurnOff"
+      }
+    },
+    {
+      "@id": "_:ub81bL23C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "http://iotschema.org/Building"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/domain"
+      }
+    },
+    {
+      "@id": "_:ub81bL34C15",
+      "sh:datatype": {
+        "@id": "xsd:boolean"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/providesOutputData"
+      }
+    },
+    {
+      "@id": "_:ub81bL57C15",
+      "sh:datatype": {
+        "@id": "xsd:boolean"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/acceptsInputData"
+      }
+    },
+    {
+      "@id": "http://iotschema.org/SwitchStatusShape",
+      "@type": "sh:NodeShape",
+      "sh:property": [
+        {
+          "@id": "_:ub81bL46C15"
+        },
+        {
+          "@id": "_:ub81bL34C15"
+        },
+        {
+          "@id": "_:ub81bL40C15"
+        }
+      ],
+      "sh:targetClass": {
+        "@id": "http://iotschema.org/SwitchStatus"
+      }
+    },
+    {
+      "@id": "_:ub81bL80C15",
+      "sh:class": {
+        "@id": "http://iotschema.org/Action"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "rdfs:subClassOf"
+      }
+    },
+    {
+      "@id": "http://iotschema.org/TurnOnShape",
+      "@type": "sh:NodeShape",
+      "sh:property": [
+        {
+          "@id": "_:ub81bL57C15"
+        },
+        {
+          "@id": "_:ub81bL63C15"
+        }
+      ],
+      "sh:targetClass": {
+        "@id": "http://iotschema.org/TurnOn"
+      }
+    }
+  ]
+}

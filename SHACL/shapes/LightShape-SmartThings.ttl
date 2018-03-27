@@ -1,0 +1,150 @@
+# baseURI: http://ureasoner.org/ruleschema
+# imports: http://datashapes.org/dash
+# imports: http://example.org/td-data-types
+# imports: http://www.w3.org/ns/td#
+
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix td: <http://www.w3.org/ns/td#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://iotschema.org/> .
+@prefix schema: <http://schema.org/> .
+@prefix iotsh: <http://iotschema.org/shapes/> .
+
+:Light
+    a sh:NodeShape ;
+    sh:targetClass :LightControl ;
+  sh:property [
+      sh:path :providesInteractionPattern ;
+      sh:minCount 1 ;
+	  sh:in ( :SwitchStatus :CurrentDimmer :TurnOn :TurnOff :SetDimmer ) ;
+    ] ;
+  sh:property [
+      sh:path :domain ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+	  sh:in (  :Building ) ;
+    ] ;
+.
+
+:SwitchStatusShape
+    a sh:NodeShape ;
+    sh:targetClass :SwitchStatus ;
+  sh:property [
+      sh:path :providesOutputData ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+	  sh:datatype xsd:boolean ;
+    ] ;	
+  sh:property [
+      sh:path rdfs:subClassOf ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:class :Property ;
+    ] ;	
+  sh:property [
+      sh:path :observable ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+	  sh:datatype false ;
+    ] ;		
+.
+
+:CurrentDimmerShape
+    a sh:NodeShape ;
+    sh:targetClass :CurrentDimmer ;
+  sh:property [
+      sh:path :providesOutputData ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+	  sh:in ( :DimmerData ) ;
+    ] ;	
+  sh:property [
+      sh:path rdfs:subClassOf ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:class :Property ;
+    ] ;	
+  sh:property [
+      sh:path :observable ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+	  sh:datatype false ;
+    ] ;		
+.
+
+:TurnOnShape
+    a sh:NodeShape ;
+    sh:targetClass :TurnOn ;
+  sh:property [
+      sh:path :acceptsInputData ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+	  sh:datatype xsd:boolean ;
+    ] ;		
+  sh:property [
+      sh:path rdfs:subClassOf ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:class :Action ;
+    ] ;	
+.
+
+:TurnOffShape
+    a sh:NodeShape ;
+    sh:targetClass :TurnOff ;
+  sh:property [
+      sh:path :acceptsInputData ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+	  sh:datatype xsd:boolean ;
+    ] ;	
+  sh:property [
+      sh:path rdfs:subClassOf ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:class :Action ;
+    ] ;	
+.
+
+:SetDimmerShape
+    a sh:NodeShape ;
+    sh:targetClass :SetDimmer ;
+  sh:property [
+      sh:path :acceptsInputData ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+	  sh:in ( :DimmerData :RampTimeData ) ;
+    ] ;	
+  sh:property [
+      sh:path rdfs:subClassOf ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:class :Action ;
+    ] ;			
+.
+
+:DimmerDataShape
+    a sh:NodeShape ;
+    sh:targetClass :DimmerData ;
+    sh:property [
+		sh:path schema:propertyType ;
+		sh:minInclusive 0.0 ;
+		sh:maxInclusive 255.0;
+		sh:datatype xsd:integer
+    ]		
+.
+
+:RampTimeDataShape
+    a sh:NodeShape ;
+    sh:targetClass :RampTimeData ;
+    sh:property [
+		sh:path schema:propertyType ;
+		sh:minInclusive 0.0 ;
+		sh:maxInclusive 65535.0;
+		sh:datatype xsd:integer
+    ]		
+.

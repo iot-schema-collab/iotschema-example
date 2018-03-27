@@ -1,0 +1,406 @@
+{
+  "@context": {
+    "dash": "http://datashapes.org/dash#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "td": "http://iot.linkeddata.es/def/wot#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "_:ub79bL59C15",
+      "sh:class": {
+        "@id": "http://iotschema.org/Action"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "rdfs:subClassOf"
+      }
+    },
+    {
+      "@id": "_:ub79bL36C15",
+      "sh:datatype": {
+        "@id": "xsd:boolean"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/acceptsInputData"
+      }
+    },
+    {
+      "@id": "_:ub79bL99C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "http://iotschema.org/CoolMode"
+          },
+          {
+            "@id": "http://iotschema.org/FanMode"
+          },
+          {
+            "@id": "http://iotschema.org/DryMode"
+          },
+          {
+            "@id": "http://iotschema.org/EnergyOrPowerSaverMode"
+          },
+          {
+            "@id": "http://iotschema.org/SleepMode"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:propertyType"
+      }
+    },
+    {
+      "@id": "_:ub79bL116C15",
+      "sh:class": {
+        "@id": "http://iotschema.org/Property"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "rdfs:subClassOf"
+      }
+    },
+    {
+      "@id": "_:ub79bL53C15",
+      "sh:datatype": {
+        "@id": "xsd:boolean"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/acceptsInputData"
+      }
+    },
+    {
+      "@id": "_:ub79bL70C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "http://iotschema.org/RunModeData"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/acceptsInputData"
+      }
+    },
+    {
+      "@id": "_:ub79bL88C15",
+      "sh:datatype": false,
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/observable"
+      }
+    },
+    {
+      "@id": "http://iotschema.org/TemperatureDataShape",
+      "@type": "sh:NodeShape",
+      "sh:property": {
+        "@id": "_:ub79bL162C17"
+      },
+      "sh:targetClass": {
+        "@id": "http://iotschema.org/TemperatureData"
+      }
+    },
+    {
+      "@id": "_:ub79bL24C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "http://iotschema.org/Home"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/domain"
+      }
+    },
+    {
+      "@id": "_:ub79bL145C15",
+      "sh:class": {
+        "@id": "http://iotschema.org/Property"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "rdfs:subClassOf"
+      }
+    },
+    {
+      "@id": "http://iotschema.org/TurnOnShape",
+      "@type": "sh:NodeShape",
+      "sh:property": [
+        {
+          "@id": "_:ub79bL42C15"
+        },
+        {
+          "@id": "_:ub79bL36C15"
+        }
+      ],
+      "sh:targetClass": {
+        "@id": "http://iotschema.org/TurnOn"
+      }
+    },
+    {
+      "@id": "_:ub79bL76C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "http://iotschema.org/RunModeData"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/providesOutputData"
+      }
+    },
+    {
+      "@id": "_:ub79bL42C15",
+      "sh:class": {
+        "@id": "http://iotschema.org/Action"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "rdfs:subClassOf"
+      }
+    },
+    {
+      "@id": "http://iotschema.org/AirConditionerShape",
+      "@type": "sh:NodeShape",
+      "sh:property": [
+        {
+          "@id": "_:ub79bL24C15"
+        },
+        {
+          "@id": "_:ub79bL19C15"
+        }
+      ],
+      "sh:targetClass": {
+        "@id": "http://iotschema.org/AirConditioner"
+      }
+    },
+    {
+      "@id": "_:ub79bL151C15",
+      "sh:datatype": false,
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/observable"
+      }
+    },
+    {
+      "@id": "_:ub79bL122C15",
+      "sh:datatype": false,
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/observable"
+      }
+    },
+    {
+      "@id": "http://iotschema.org/RunModeDataShape",
+      "@type": "sh:NodeShape",
+      "sh:property": {
+        "@id": "_:ub79bL99C15"
+      },
+      "sh:targetClass": {
+        "@id": "http://iotschema.org/RunModeData"
+      }
+    },
+    {
+      "@id": "_:ub79bL82C15",
+      "sh:class": {
+        "@id": "http://iotschema.org/Property"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "rdfs:subClassOf"
+      }
+    },
+    {
+      "@id": "_:ub79bL162C17",
+      "schema:unitCode": {
+        "@id": "http://iotschema.org/Celsius"
+      },
+      "sh:datatype": {
+        "@id": "xsd:float"
+      },
+      "sh:maxInclusive": {
+        "@type": "xsd:decimal",
+        "@value": "35.0"
+      },
+      "sh:minInclusive": {
+        "@type": "xsd:decimal",
+        "@value": "5.0"
+      },
+      "sh:path": {
+        "@id": "schema:propertyType"
+      }
+    },
+    {
+      "@id": "_:ub79bL19C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "http://iotschema.org/TurnOn"
+          },
+          {
+            "@id": "http://iotschema.org/TurnOff"
+          },
+          {
+            "@id": "http://iotschema.org/RunMode"
+          },
+          {
+            "@id": "http://iotschema.org/TargetTemperature"
+          },
+          {
+            "@id": "http://iotschema.org/Temperature"
+          }
+        ]
+      },
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/providesInteractionPattern"
+      }
+    },
+    {
+      "@id": "_:ub79bL110C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "http://iotschema.org/TemperatureData"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/providesOutputData"
+      }
+    },
+    {
+      "@id": "_:ub79bL139C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "http://iotschema.org/TemperatureData"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/providesOutputData"
+      }
+    },
+    {
+      "@id": "http://iotschema.org/TargetTemperatureShape",
+      "@type": "sh:NodeShape",
+      "sh:property": [
+        {
+          "@id": "_:ub79bL151C15"
+        },
+        {
+          "@id": "_:ub79bL145C15"
+        },
+        {
+          "@id": "_:ub79bL139C15"
+        },
+        {
+          "@id": "_:ub79bL133C15"
+        }
+      ],
+      "sh:targetClass": {
+        "@id": "http://iotschema.org/TargetTemperature"
+      }
+    },
+    {
+      "@id": "http://iotschema.org/TemperatureShape",
+      "@type": "sh:NodeShape",
+      "sh:property": [
+        {
+          "@id": "_:ub79bL110C15"
+        },
+        {
+          "@id": "_:ub79bL116C15"
+        },
+        {
+          "@id": "_:ub79bL122C15"
+        }
+      ],
+      "sh:targetClass": {
+        "@id": "http://iotschema.org/Temperature"
+      }
+    },
+    {
+      "@id": "http://iotschema.org/TurnOffShape",
+      "@type": "sh:NodeShape",
+      "sh:property": [
+        {
+          "@id": "_:ub79bL53C15"
+        },
+        {
+          "@id": "_:ub79bL59C15"
+        }
+      ],
+      "sh:targetClass": {
+        "@id": "http://iotschema.org/TurnOff"
+      }
+    },
+    {
+      "@id": "_:ub79bL133C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "http://iotschema.org/TemperatureData"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/acceptsInputData"
+      }
+    },
+    {
+      "@id": "http://iotschema.org/RunModeShape",
+      "@type": "sh:NodeShape",
+      "sh:property": [
+        {
+          "@id": "_:ub79bL82C15"
+        },
+        {
+          "@id": "_:ub79bL70C15"
+        },
+        {
+          "@id": "_:ub79bL76C15"
+        },
+        {
+          "@id": "_:ub79bL88C15"
+        }
+      ],
+      "sh:targetClass": {
+        "@id": "http://iotschema.org/RunMode"
+      }
+    }
+  ]
+}

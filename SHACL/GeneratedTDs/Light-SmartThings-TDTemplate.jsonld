@@ -1,0 +1,114 @@
+{
+    "@context": [
+        "https://w3c.github.io/wot/w3c-wot-td-context.jsonld",
+        {
+            "iot": "http://iotschema.org/"
+        }
+    ],
+    "name": "LightControl",
+    "@type": [
+        "Thing",
+        "iot:LightControl"
+    ],
+    "base": "",
+    "domain": [
+        "iot:Building"
+    ],
+    "interaction": [
+        {
+            "name": "SwitchStatus",
+            "@type": [
+                "Property",
+                "iot:SwitchStatus"
+            ],
+            "observable": false,
+            "schema": "boolean",
+            "writable": false,
+            "form": [
+                {
+                    "href": "",
+                    "mediaType": ""
+                }
+            ]
+        },
+        {
+            "name": "CurrentDimmer",
+            "@type": [
+                "Property",
+                "iot:CurrentDimmer"
+            ],
+            "observable": false,
+            "schema": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 255,
+                "@type": "iot:DimmerData"
+            },
+            "writable": false,
+            "form": [
+                {
+                    "href": "",
+                    "mediaType": ""
+                }
+            ]
+        },
+        {
+            "name": "TurnOn",
+            "@type": [
+                "Action",
+                "iot:TurnOn"
+            ],
+            "inputSchema": "boolean",
+            "form": [
+                {
+                    "href": "",
+                    "mediaType": ""
+                }
+            ]
+        },
+        {
+            "name": "TurnOff",
+            "@type": [
+                "Action",
+                "iot:TurnOff"
+            ],
+            "inputSchema": "boolean",
+            "form": [
+                {
+                    "href": "",
+                    "mediaType": ""
+                }
+            ]
+        },
+        {
+            "name": "SetDimmer",
+            "@type": [
+                "Action",
+                "iot:SetDimmer"
+            ],
+            "inputSchema": {
+                "type": "object",
+                "field": [
+                    {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 255,
+                        "@type": "iot:DimmerData"
+                    },
+                    {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "@type": "iot:RampTimeData"
+                    }
+                ]
+            },
+            "form": [
+                {
+                    "href": "",
+                    "mediaType": ""
+                }
+            ]
+        }
+    ]
+}

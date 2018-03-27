@@ -1,0 +1,345 @@
+{
+  "@context": {
+    "dash": "http://datashapes.org/dash#",
+    "iotsh": "http://iotschema.org/shapes/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "td": "http://www.w3.org/ns/td#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "_:ub40bL70C15",
+      "sh:datatype": false,
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/observable"
+      }
+    },
+    {
+      "@id": "http://iotschema.org/RampTimeDataShape",
+      "@type": "sh:NodeShape",
+      "sh:property": {
+        "@id": "_:ub40bL143C17"
+      },
+      "sh:targetClass": {
+        "@id": "http://iotschema.org/RampTimeData"
+      }
+    },
+    {
+      "@id": "_:ub40bL81C15",
+      "sh:datatype": {
+        "@id": "xsd:boolean"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/acceptsInputData"
+      }
+    },
+    {
+      "@id": "_:ub40bL41C15",
+      "sh:class": {
+        "@id": "http://iotschema.org/Property"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "rdfs:subClassOf"
+      }
+    },
+    {
+      "@id": "http://iotschema.org/TurnOnShape",
+      "@type": "sh:NodeShape",
+      "sh:property": [
+        {
+          "@id": "_:ub40bL87C15"
+        },
+        {
+          "@id": "_:ub40bL81C15"
+        }
+      ],
+      "sh:targetClass": {
+        "@id": "http://iotschema.org/TurnOn"
+      }
+    },
+    {
+      "@id": "_:ub40bL132C17",
+      "sh:datatype": {
+        "@id": "xsd:integer"
+      },
+      "sh:maxInclusive": {
+        "@type": "xsd:decimal",
+        "@value": "255.0"
+      },
+      "sh:minInclusive": {
+        "@type": "xsd:decimal",
+        "@value": "0.0"
+      },
+      "sh:path": {
+        "@id": "schema:propertyType"
+      }
+    },
+    {
+      "@id": "_:ub40bL143C17",
+      "sh:datatype": {
+        "@id": "xsd:integer"
+      },
+      "sh:maxInclusive": {
+        "@type": "xsd:decimal",
+        "@value": "65535.0"
+      },
+      "sh:minInclusive": {
+        "@type": "xsd:decimal",
+        "@value": "0.0"
+      },
+      "sh:path": {
+        "@id": "schema:propertyType"
+      }
+    },
+    {
+      "@id": "http://iotschema.org/Light",
+      "@type": "sh:NodeShape",
+      "sh:property": [
+        {
+          "@id": "_:ub40bL19C15"
+        },
+        {
+          "@id": "_:ub40bL24C15"
+        }
+      ],
+      "sh:targetClass": {
+        "@id": "http://iotschema.org/LightControl"
+      }
+    },
+    {
+      "@id": "_:ub40bL115C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "http://iotschema.org/DimmerData"
+          },
+          {
+            "@id": "http://iotschema.org/RampTimeData"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/acceptsInputData"
+      }
+    },
+    {
+      "@id": "_:ub40bL19C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "http://iotschema.org/SwitchStatus"
+          },
+          {
+            "@id": "http://iotschema.org/CurrentDimmer"
+          },
+          {
+            "@id": "http://iotschema.org/TurnOn"
+          },
+          {
+            "@id": "http://iotschema.org/TurnOff"
+          },
+          {
+            "@id": "http://iotschema.org/SetDimmer"
+          }
+        ]
+      },
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/providesInteractionPattern"
+      }
+    },
+    {
+      "@id": "_:ub40bL104C15",
+      "sh:class": {
+        "@id": "http://iotschema.org/Action"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "rdfs:subClassOf"
+      }
+    },
+    {
+      "@id": "_:ub40bL64C15",
+      "sh:class": {
+        "@id": "http://iotschema.org/Property"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "rdfs:subClassOf"
+      }
+    },
+    {
+      "@id": "http://iotschema.org/SetDimmerShape",
+      "@type": "sh:NodeShape",
+      "sh:property": [
+        {
+          "@id": "_:ub40bL115C15"
+        },
+        {
+          "@id": "_:ub40bL121C15"
+        }
+      ],
+      "sh:targetClass": {
+        "@id": "http://iotschema.org/SetDimmer"
+      }
+    },
+    {
+      "@id": "_:ub40bL24C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "http://iotschema.org/Building"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/domain"
+      }
+    },
+    {
+      "@id": "_:ub40bL87C15",
+      "sh:class": {
+        "@id": "http://iotschema.org/Action"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "rdfs:subClassOf"
+      }
+    },
+    {
+      "@id": "http://iotschema.org/DimmerDataShape",
+      "@type": "sh:NodeShape",
+      "sh:property": {
+        "@id": "_:ub40bL132C17"
+      },
+      "sh:targetClass": {
+        "@id": "http://iotschema.org/DimmerData"
+      }
+    },
+    {
+      "@id": "http://iotschema.org/CurrentDimmerShape",
+      "@type": "sh:NodeShape",
+      "sh:property": [
+        {
+          "@id": "_:ub40bL58C15"
+        },
+        {
+          "@id": "_:ub40bL64C15"
+        },
+        {
+          "@id": "_:ub40bL70C15"
+        }
+      ],
+      "sh:targetClass": {
+        "@id": "http://iotschema.org/CurrentDimmer"
+      }
+    },
+    {
+      "@id": "_:ub40bL35C15",
+      "sh:datatype": {
+        "@id": "xsd:boolean"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/providesOutputData"
+      }
+    },
+    {
+      "@id": "_:ub40bL47C15",
+      "sh:datatype": false,
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/observable"
+      }
+    },
+    {
+      "@id": "_:ub40bL98C15",
+      "sh:datatype": {
+        "@id": "xsd:boolean"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/acceptsInputData"
+      }
+    },
+    {
+      "@id": "_:ub40bL121C15",
+      "sh:class": {
+        "@id": "http://iotschema.org/Action"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "rdfs:subClassOf"
+      }
+    },
+    {
+      "@id": "http://iotschema.org/TurnOffShape",
+      "@type": "sh:NodeShape",
+      "sh:property": [
+        {
+          "@id": "_:ub40bL98C15"
+        },
+        {
+          "@id": "_:ub40bL104C15"
+        }
+      ],
+      "sh:targetClass": {
+        "@id": "http://iotschema.org/TurnOff"
+      }
+    },
+    {
+      "@id": "_:ub40bL58C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "http://iotschema.org/DimmerData"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "http://iotschema.org/providesOutputData"
+      }
+    },
+    {
+      "@id": "http://iotschema.org/SwitchStatusShape",
+      "@type": "sh:NodeShape",
+      "sh:property": [
+        {
+          "@id": "_:ub40bL47C15"
+        },
+        {
+          "@id": "_:ub40bL35C15"
+        },
+        {
+          "@id": "_:ub40bL41C15"
+        }
+      ],
+      "sh:targetClass": {
+        "@id": "http://iotschema.org/SwitchStatus"
+      }
+    }
+  ]
+}
