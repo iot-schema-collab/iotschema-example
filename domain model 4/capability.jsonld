@@ -1,0 +1,168 @@
+{
+    "@context" : [
+	{
+		"rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+		"rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+		"schema": "http://schema.org/",
+		"iot": "http://iotschema.org/"
+	}],
+	"@graph": [
+	{
+		"@id": "iot:AirConditioner",
+		"@type": "rdfs:Class",
+		"rdfs:subClassOf": { "@id": "iot:Capability" },
+		"rdfs:comment": "A capability for air conditioner",
+		"rdfs:label": "AirConditioner",
+		"iot:domain": {"@id": "iot:Home"}
+	},
+	{
+		"@id": "iot:TemperatureSensing",
+		"@type": "rdfs:Class",
+		"rdfs:subClassOf": { "@id": "iot:Capability" },
+		"rdfs:comment": "A capability for temperature sensing",
+		"rdfs:label": "TemperatureSensing",
+		"iot:domain": {"@id": "iot:Common"}
+	},
+	{
+		"@id": "iot:Thermostat",
+		"@type": "rdfs:Class",
+		"rdfs:subClassOf": { "@id": "iot:Capability" },
+		"rdfs:comment": "A capability for thermostat",
+		"rdfs:label": "Thermostat",
+		"iot:domain": {"@id": "iot:Common"}
+	},
+	{
+      "@id": "iot:temperature",
+      "@type": "rdf:Property",
+      "rdfs:label": "temperature",
+	  "rdfs:comment": "A property that relates a capability with its Temperature interaction pattern.",
+      "schema:domainIncludes": [
+        {
+          "@id": "iot:AirConditioner"
+        },
+        {
+          "@id": "iot:TemperatureSensing"
+        },
+        {
+          "@id": "iot:Thermostat"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "iot:Temperature"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesInteractionPattern"
+      }
+    },
+	{
+      "@id": "iot:targetTemperature",
+      "@type": "rdf:Property",
+      "rdfs:label": "targetTemperature",
+	  "rdfs:comment": "A property that relates a capability with its TargetTemperature interaction pattern.",
+      "schema:domainIncludes": [
+        {
+          "@id": "iot:AirConditioner"
+        },
+        {
+          "@id": "iot:Thermostat"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "iot:TargetTemperature"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesInteractionPattern"
+      }
+    },
+	{
+      "@id": "iot:switchStatus",
+      "@type": "rdf:Property",
+      "rdfs:label": "switchStatus",
+	  "rdfs:comment": "A property that relates a capability with its SwitchStatus interaction pattern.",
+      "schema:domainIncludes": {
+        "@id": "iot:AirConditioner"
+      },
+      "schema:rangeIncludes": {
+        "@id": "iot:SwitchStatus"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesInteractionPattern"
+      }
+    },
+	{
+      "@id": "iot:turnOn",
+      "@type": "rdf:Property",
+      "rdfs:label": "turnOn",
+	  "rdfs:comment": "A property that relates a capability with its TurnOn interaction pattern.",
+      "schema:domainIncludes": {
+        "@id": "iot:AirConditioner"
+      },
+      "schema:rangeIncludes": {
+        "@id": "iot:TurnOn"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesInteractionPattern"
+      }
+    },
+	{
+      "@id": "iot:turnOff",
+      "@type": "rdf:Property",
+      "rdfs:label": "turnOff",
+	  "rdfs:comment": "A property that relates a capability with its TurnOff interaction pattern.",
+      "schema:domainIncludes": {
+        "@id": "iot:AirConditioner"
+      },
+      "schema:rangeIncludes": {
+        "@id": "iot:TurnOff"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesInteractionPattern"
+      }
+    },
+	{
+      "@id": "iot:runMode",
+      "@type": "rdf:Property",
+      "rdfs:label": "runMode",
+	  "rdfs:comment": "A property that relates a capability with its RunMode interaction pattern.",
+      "schema:domainIncludes": {
+        "@id": "iot:AirConditioner"
+      },
+      "schema:rangeIncludes": {
+        "@id": "iot:RunMode"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesInteractionPattern"
+      }
+    },
+	{
+      "@id": "iot:countDown",
+      "@type": "rdf:Property",
+      "rdfs:label": "countDown",
+	  "rdfs:comment": "A property that relates a capability with its CountDown interaction pattern.",
+      "schema:domainIncludes": {
+        "@id": "iot:AirConditioner"
+      },
+      "schema:rangeIncludes": {
+        "@id": "iot:CountDown"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesInteractionPattern"
+      }
+    },
+	{
+      "@id": "iot:windStrength",
+      "@type": "rdf:Property",
+      "rdfs:label": "windStrength",
+	  "rdfs:comment": "A property that relates a capability with its WindStrength interaction pattern.",
+      "schema:domainIncludes": {
+        "@id": "iot:AirConditioner"
+      },
+      "schema:rangeIncludes": {
+        "@id": "iot:WindStrength"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesInteractionPattern"
+      }
+    }
+	]
+}
