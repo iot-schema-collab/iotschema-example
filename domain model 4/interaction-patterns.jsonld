@@ -139,6 +139,24 @@
 		"iot:writable" : "schema:True",
 		"iot:observable" : "schema:Boolean"
     },
+	{
+		"@id": "iot:Humidity",
+		"@type": "rdfs:Class",
+		"rdfs:comment": "Humidity interaction property (e.g., in the range 0-100).",
+		"rdfs:label": "Humidity",
+		"rdfs:subClassOf": { "@id": "iot:Property" },
+		"iot:writable" : "schema:False",
+		"iot:observable" : "schema:Boolean"
+    },
+	{
+		"@id": "iot:TargetHumidity",
+		"@type": "rdfs:Class",
+		"rdfs:comment": "Desired value for Humidity (e.g., in the range 0-100).",
+		"rdfs:label": "TargetHumidity",
+		"rdfs:subClassOf": { "@id": "iot:Property" },
+		"iot:writable" : "schema:False",
+		"iot:observable" : "schema:Boolean"
+    },
     {
 		"@id": "iot:TimeData",
 		"@type": "rdfs:Class",
@@ -164,6 +182,15 @@
 		"@type": "rdfs:Class",
 		"rdfs:comment": "Wind data",
 		"rdfs:label": "WindData",
+		"rdfs:subClassOf": {
+			"@id": "schema:PropertyValue"
+		}
+    },
+	{
+		"@id": "iot:HumidityData",
+		"@type": "rdfs:Class",
+		"rdfs:comment": "Humidity Data",
+		"rdfs:label": "HumidityData",
 		"rdfs:subClassOf": {
 			"@id": "schema:PropertyValue"
 		}
@@ -278,7 +305,6 @@
         "@id": "iot:acceptsInputData"
       }
     },
-	
 	{
       "@id": "iot:providesWindData",
       "@type": "rdf:Property",
@@ -304,6 +330,36 @@
       },
       "schema:rangeIncludes": {
         "@id": "iot:WindData"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:acceptsInputData"
+      }
+    },
+	{
+      "@id": "iot:providesHumidityData",
+      "@type": "rdf:Property",
+      "rdfs:label": "providesHumidityData",
+	  "rdfs:comment": "A property that relates an Interaction Pattern with its output HumidityData.",
+      "schema:domainIncludes": {
+        "@id": "iot:Humidity"
+      },
+	  "schema:rangeIncludes": {
+        "@id": "iot:HumidityData"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesOutputData"
+      }
+    },
+	{
+      "@id": "iot:acceptsHumidityData", 
+      "@type": "rdf:Property",
+      "rdfs:label": "acceptsHumidityData",
+	  "rdfs:comment": "A property that relates an Interaction Pattern with its input HumidityData.",
+      "schema:domainIncludes": {
+        "@id": "iot:TargetHumidity"
+      },
+      "schema:rangeIncludes": {
+        "@id": "iot:HumidityData"
       },
 	  "rdfs:subPropertyOf": {
         "@id": "iot:acceptsInputData"

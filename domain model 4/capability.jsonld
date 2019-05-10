@@ -16,6 +16,17 @@
 		"iot:domain": {"@id": "iot:Home"}
 	},
 	{
+		"@id": "iot:HumiditySensing",
+		"@type": "rdfs:Class",
+		"rdfs:subClassOf": { "@id": "iot:Capability" },
+		"rdfs:comment": "Current sensed value for humidity.",
+		"rdfs:label": "HumiditySensing",
+		"iot:domain": [
+			{"@id": "iot:Home"},
+			{"@id": "iot:Building"}
+			]
+	},
+	{
 		"@id": "iot:TemperatureSensing",
 		"@type": "rdfs:Class",
 		"rdfs:subClassOf": { "@id": "iot:Capability" },
@@ -159,6 +170,40 @@
       },
       "schema:rangeIncludes": {
         "@id": "iot:WindStrength"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesInteractionPattern"
+      }
+    },
+	{
+      "@id": "iot:humidity",
+      "@type": "rdf:Property",
+      "rdfs:label": "humidity",
+	  "rdfs:comment": "A property that relates a capability with its Humidity interaction pattern.",
+      "schema:domainIncludes": [
+        {
+          "@id": "iot:HumiditySensing"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "iot:Humidity"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesInteractionPattern"
+      }
+    },
+	{
+      "@id": "iot:targetHumidity",
+      "@type": "rdf:Property",
+      "rdfs:label": "targetHumidity",
+	  "rdfs:comment": "A property that relates a capability with its TargetHumidity interaction pattern.",
+      "schema:domainIncludes": [
+        {
+          "@id": "iot:HumiditySensing"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "iot:TargetHumidity"
       },
 	  "rdfs:subPropertyOf": {
         "@id": "iot:providesInteractionPattern"
