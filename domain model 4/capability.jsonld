@@ -42,6 +42,28 @@
 		"rdfs:label": "Thermostat",
 		"iot:domain": {"@id": "iot:Common"}
 	},
+  {
+  "@id": "iot:IlluminanceSensing",
+  "@type": "rdfs:Class",
+  "rdfs:subClassOf": { "@id": "iot:Capability" },
+  "rdfs:comment": "Sensed luminous flux per unit area in lux.",
+  "rdfs:label": "IlluminanceSensing",
+  "iot:domain": [
+    {"@id": "iot:Home"},
+    {"@id": "iot:Building"}
+    ]
+  },
+  {
+		"@id": "iot:MotionControl",
+		"@type": "rdfs:Class",
+		"rdfs:subClassOf": { "@id": "iot:Capability" },
+		"rdfs:comment": "Presence (motion) sensing capability",
+		"rdfs:label": "MotionControl",
+		"iot:domain": [
+			{"@id": "iot:Home"},
+			{"@id": "iot:Building"}
+			]
+	},
 	{
       "@id": "iot:temperature",
       "@type": "rdf:Property",
@@ -204,6 +226,57 @@
       ],
       "schema:rangeIncludes": {
         "@id": "iot:TargetHumidity"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesInteractionPattern"
+      }
+    },
+	  {
+      "@id": "iot:illuminance",
+      "@type": "rdf:Property",
+      "rdfs:label": "illuminance",
+	  "rdfs:comment": "A property that relates a capability with its Illuminance interaction pattern.",
+      "schema:domainIncludes": [
+        {
+          "@id": "iot:IlluminanceSensing"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "iot:Illuminance"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesInteractionPattern"
+      }
+    },
+	  {
+      "@id": "iot:motionDetected",
+      "@type": "rdf:Property",
+      "rdfs:label": "motionDetected",
+	  "rdfs:comment": "A property that relates a capability with its MotionDetected interaction pattern.",
+      "schema:domainIncludes": [
+        {
+          "@id": "iot:MotionControl"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "iot:MotionDetected"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesInteractionPattern"
+      }
+    },
+	  {
+      "@id": "iot:motionType",
+      "@type": "rdf:Property",
+      "rdfs:label": "motionType",
+	  "rdfs:comment": "A property that relates a capability with its MotionType interaction pattern.",
+      "schema:domainIncludes": [
+        {
+          "@id": "iot:MotionControl"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "iot:MotionType"
       },
 	  "rdfs:subPropertyOf": {
         "@id": "iot:providesInteractionPattern"
