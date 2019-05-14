@@ -396,6 +396,21 @@
       }
     },
 	{
+      "@id": "iot:humidityUnitCode", 
+      "@type": "rdf:Property",
+      "rdfs:label": "temperatureUnitCode",
+	  "rdfs:comment": "A property that relates HumidityData with its unit.",
+      "schema:domainIncludes": {
+        "@id": "iot:HumidityData"
+      },
+      "schema:rangeIncludes": {
+        "@id": "iot:Percent"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "schema:unitCode"
+      }
+    },
+	{
       "@id": "iot:numberDataType",
       "@type": "rdf:Property",
       "schema:domainIncludes": [
