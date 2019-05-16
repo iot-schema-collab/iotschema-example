@@ -158,6 +158,29 @@
 		"iot:observable" : "schema:Boolean"
     },
     {
+		"@id": "iot:Illuminance",
+		"@type": "rdfs:Class",
+		"rdfs:comment": "Illuminance interaction property",
+		"rdfs:label": "Illuminance",
+		"rdfs:subClassOf": { "@id": "iot:Property" },
+		"iot:writable" : "schema:False",
+		"iot:observable" : "schema:Boolean"
+    },
+    {
+		"@id": "iot:MotionDetected",
+		"@type": "rdfs:Class",
+		"rdfs:comment": "MotionDetected interaction property",
+		"rdfs:label": "MotionDetected",
+		"rdfs:subClassOf": { "@id": "iot:Event" }
+    },  
+    {
+		"@id": "iot:MotionType",
+		"@type": "rdfs:Class",
+		"rdfs:comment": "MotionType interaction property",
+		"rdfs:label": "MotionType",
+		"rdfs:subClassOf": { "@id": "iot:Property" }
+    },      
+    {
 		"@id": "iot:TimeData",
 		"@type": "rdfs:Class",
 		"rdfs:comment": "Time data",
@@ -195,7 +218,28 @@
 			"@id": "schema:PropertyValue"
 		}
     },
-	{
+    {
+		"@id": "iot:IlluminanceData",
+		"@type": "rdfs:Class",
+		"rdfs:comment": " Illuminance data",
+		"rdfs:label": "IlluminanceData",
+		"rdfs:subClassOf": { "@id": "schema:PropertyValue" }
+    },
+    {
+		"@id": "iot:StateData",
+		"@type": "rdfs:Class",
+		"rdfs:comment": " State data",
+		"rdfs:label": "StateData",
+		"rdfs:subClassOf": { "@id": "schema:PropertyValue" }
+    },
+    {
+		"@id": "iot:MotionTypeData",
+		"@type": "rdfs:Class",
+		"rdfs:comment": " Motion types",
+		"rdfs:label": "MotionTypeData",
+		"rdfs:subClassOf": { "@id": "schema:PropertyValue" }
+    },
+	  {
       "@id": "iot:providesTemperatureData",
       "@type": "rdf:Property",
       "rdfs:label": "providesTemperatureData",
@@ -245,7 +289,7 @@
         "@id": "iot:providesOutputData"
       }
     },
-	{
+	  {
       "@id": "iot:providesRunModeData",
       "@type": "rdf:Property",
       "rdfs:label": "providesRunModeData",
@@ -350,6 +394,51 @@
         "@id": "iot:providesOutputData"
       }
     },
+  	{
+      "@id": "iot:providesIlluminanceData",
+      "@type": "rdf:Property",
+      "rdfs:label": "providesIlluminanceData",
+	  "rdfs:comment": "A property that relates an Interaction Pattern with its output IlluminanceData.",
+      "schema:domainIncludes": {
+        "@id": "iot:Illuminance"
+      },
+	  "schema:rangeIncludes": {
+        "@id": "iot:IlluminanceData"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesOutputData"
+      }
+    },   
+    {
+      "@id": "iot:providesStateData",
+      "@type": "rdf:Property",
+      "rdfs:label": "providesStateData",
+	  "rdfs:comment": "A property that relates an Interaction Pattern with its output StateData.",
+      "schema:domainIncludes": {
+        "@id": "iot:MotionDetected"
+      },
+	  "schema:rangeIncludes": {
+        "@id": "iot:StateData"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesOutputData"
+      }
+    }, 
+    {
+      "@id": "iot:providesMotionTypeData",
+      "@type": "rdf:Property",
+      "rdfs:label": "providesMotionTypeData",
+	  "rdfs:comment": "A property that relates an Interaction Pattern with its output MotionTypeData.",
+      "schema:domainIncludes": {
+        "@id": "iot:MotionType"
+      },
+	  "schema:rangeIncludes": {
+        "@id": "iot:MotionTypeData"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesOutputData"
+      }
+    },    
 	{
       "@id": "iot:acceptsHumidityData", 
       "@type": "rdf:Property",
@@ -410,18 +499,36 @@
         "@id": "schema:unitCode"
       }
     },
+    {
+    "@id": "iot:illuminanceUnitCode", 
+    "@type": "rdf:Property",
+    "rdfs:label": "illuminanceUnitCode",
+  "rdfs:comment": "A property that relates IlluminanceData with its unit.",
+    "schema:domainIncludes": {
+      "@id": "iot:IlluminanceData"
+    },
+    "schema:rangeIncludes": {
+      "@id": "iot:IlluminanceUnit"
+    },
+  "rdfs:subPropertyOf": {
+      "@id": "schema:unitCode"
+    }
+  },
 	{
       "@id": "iot:numberDataType",
       "@type": "rdf:Property",
       "schema:domainIncludes": [
 	  {
         "@id": "iot:TemperatureData"
-      },
+    },
 	  {
 	    "@id": "iot:TimeData"
 	  }, 
 	  {
 	    "@id": "iot:WindData"
+	  }, 
+	  {
+	    "@id": "iot:IlluminanceData"
 	  }
 	  ],
       "schema:rangeIncludes": [
@@ -435,6 +542,25 @@
         "@id": "schema:propertyType"
       }
     },
+	 {
+      "@id": "iot:booleanDataType",
+      "@type": "rdf:Property",
+      "schema:domainIncludes": [
+	  {
+        "@id": "iot:StateData"
+    }
+	  ],
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:Boolean"
+        }
+      ],
+      "rdfs:comment": "The data with value type Boolean.",
+      "rdfs:label": "booleanDataType",
+	  "rdfs:subPropertyOf": {
+        "@id": "schema:propertyType"
+      }
+    },    
 	{
       "@id": "iot:runModeType",
       "@type": "rdf:Property",
@@ -449,7 +575,37 @@
 	  "rdfs:subPropertyOf": {
         "@id": "schema:propertyType"
       }
-    },
+    },    
+	{
+      "@id": "iot:motionSensorType",
+      "@type": "rdf:Property",
+      "schema:domainIncludes": {
+        "@id": "iot:MotionTypeData"
+      },
+      "schema:rangeIncludes": {
+        "@id": "iot:MotionSensorType"
+      },
+      "rdfs:comment": "The motion types valid for an motion sensor.",
+      "rdfs:label": "motionSensorType",
+	  "rdfs:subPropertyOf": {
+        "@id": "schema:propertyType"
+      }
+    },   
+	 {
+		"@id": "iot:MotionSensorType",
+		"@type": "rdfs:Class",
+		"rdfs:comment": "An enumeration of motion types of a motion sensor.",
+		"rdfs:label": "MotionSensorType",
+		"rdfs:subClassOf": {
+			"@id": "schema:Enumeration"
+		}
+	},
+    {
+		"@id": "iot:PIR",
+		"@type": "iot:MotionSensorType",
+		"rdfs:comment": "Passive infrared sensor",
+		"rdfs:label": "PIR"
+	},     
 	 {
       "@id": "http://schema.org/minValue",
       "@type": "rdf:Property",
@@ -469,11 +625,14 @@
         {
           "@id": "http://schema.org/MonetaryAmount"
         }, 
-		{
+		    {
           "@id": "iot:TemperatureData"
         }, 
-		{
+		    {
           "@id": "iot:WindData"
+        }, 
+		    {
+          "@id": "iot:IlluminanceData"
         }
       ],
       "http://schema.org/rangeIncludes": {
@@ -501,11 +660,14 @@
         {
           "@id": "http://schema.org/MonetaryAmount"
         }, 
-		{
+		    {
           "@id": "iot:TemperatureData"
         }, 
-		{
+		    {
           "@id": "iot:WindData"
+        }, 
+		    {
+          "@id": "iot:IlluminanceData"
         }
       ],
       "http://schema.org/rangeIncludes": {
