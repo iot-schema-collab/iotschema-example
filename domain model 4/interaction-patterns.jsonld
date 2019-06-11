@@ -518,18 +518,27 @@
       "@id": "iot:numberDataType",
       "@type": "rdf:Property",
       "schema:domainIncludes": [
-	  {
-        "@id": "iot:TemperatureData"
-    },
-	  {
-	    "@id": "iot:TimeData"
-	  }, 
-	  {
-	    "@id": "iot:WindData"
-	  }, 
-	  {
-	    "@id": "iot:IlluminanceData"
-	  }
+		{
+		"@id": "iot:TemperatureData"
+		},
+		{
+		"@id": "iot:TimeData"
+		}, 
+		{
+		"@id": "iot:WindData"
+		}, 
+		{
+		"@id": "iot:IlluminanceData"
+		},
+		{
+		"@id": "ImmersionDepthData" 
+		},
+		{
+		"@id": "PressureData"
+		},
+		{
+		"@id": "DensityData"
+		}
 	  ],
       "schema:rangeIncludes": [
         {
@@ -577,21 +586,21 @@
       }
     },    
 	{
-      "@id": "iot:motionSensorType",
-      "@type": "rdf:Property",
-      "schema:domainIncludes": {
-        "@id": "iot:MotionTypeData"
-      },
-      "schema:rangeIncludes": {
-        "@id": "iot:MotionSensorType"
-      },
-      "rdfs:comment": "The motion types valid for an motion sensor.",
-      "rdfs:label": "motionSensorType",
-	  "rdfs:subPropertyOf": {
-        "@id": "schema:propertyType"
-      }
+		"@id": "iot:motionSensorType",
+		"@type": "rdf:Property",
+		"schema:domainIncludes": {
+		"@id": "iot:MotionTypeData"
+		},
+		"schema:rangeIncludes": {
+		"@id": "iot:MotionSensorType"
+		},
+		"rdfs:comment": "The motion types valid for an motion sensor.",
+		"rdfs:label": "motionSensorType",
+		"rdfs:subPropertyOf": {
+		"@id": "schema:propertyType"
+		}
     },   
-	 {
+	{
 		"@id": "iot:MotionSensorType",
 		"@type": "rdfs:Class",
 		"rdfs:comment": "An enumeration of motion types of a motion sensor.",
@@ -605,7 +614,73 @@
 		"@type": "iot:MotionSensorType",
 		"rdfs:comment": "Passive infrared sensor",
 		"rdfs:label": "PIR"
-	},     
+	},
+    {
+		"@id": "iot:OverflowStatus",
+		"@type": "rdfs:Class",
+		"rdfs:comment": "Overflow status.",
+		"rdfs:label": "OverflowStatus",
+		"rdfs:subClassOf": {
+			"@id": "iot:Property"
+		},
+		"iot:writable" : "schema:False",
+		"iot:observable" : "schema:Boolean"
+    },
+    {
+		"@id": "iot:ExpectedPressure",
+		"@type": "rdfs:Class",
+		"rdfs:comment": "Expected pressure of a substance.",
+		"rdfs:label": "ExpectedPressure",
+		"rdfs:subClassOf": {
+			"@id": "iot:Property"
+		},
+		"iot:writable" : "schema:False",
+		"iot:observable" : "schema:Boolean"
+    },
+    {
+		"@id": "iot:ExpectedDensity",
+		"@type": "rdfs:Class",
+		"rdfs:comment": "Expected density of a substance.",
+		"rdfs:label": "ExpectedDensity",
+		"rdfs:subClassOf": {
+			"@id": "iot:Property"
+		},
+		"iot:writable" : "schema:False",
+		"iot:observable" : "schema:Boolean"
+    },
+    {
+		"@id": "iot:ExpectedAmbientTemperature",
+		"@type": "rdfs:Class",
+		"rdfs:comment": "The expected temperature of the surrounding environment (air, liquid etc.).",
+		"rdfs:label": "ExpectedAmbientTemperature",
+		"rdfs:subClassOf": {
+			"@id": "iot:Property"
+		},
+		"iot:writable" : "schema:False",
+		"iot:observable" : "schema:Boolean"
+    },
+    {
+		"@id": "iot:ExpectedFloatImmersionDepth",
+		"@type": "rdfs:Class",
+		"rdfs:comment": "The expected immersion depth of liquid in float sensor.",
+		"rdfs:label": "ExpectedFloatImmersionDepth",
+		"rdfs:subClassOf": {
+			"@id": "iot:Property"
+		},
+		"iot:writable" : "schema:False",
+		"iot:observable" : "schema:Boolean"
+    },
+    {
+		"@id": "iot:OverflowStatus",
+		"@type": "rdfs:Class",
+		"rdfs:comment": "Overflow status.",
+		"rdfs:label": "OverflowStatus",
+		"rdfs:subClassOf": {
+			"@id": "iot:Property"
+		},
+		"iot:writable" : "schema:False",
+		"iot:observable" : "schema:Boolean"
+    },     
 	 {
       "@id": "http://schema.org/minValue",
       "@type": "rdf:Property",
@@ -625,15 +700,24 @@
         {
           "@id": "http://schema.org/MonetaryAmount"
         }, 
-		    {
+		{
           "@id": "iot:TemperatureData"
         }, 
-		    {
+		{
           "@id": "iot:WindData"
         }, 
-		    {
+		{
           "@id": "iot:IlluminanceData"
-        }
+        },
+		{
+          "@id": "iot:ImmersionDepthData"
+        },
+		{
+		"@id": "PressureData"
+		},
+		{
+		"@id": "DensityData"
+		}
       ],
       "http://schema.org/rangeIncludes": {
         "@id": "http://schema.org/Number"
@@ -660,21 +744,171 @@
         {
           "@id": "http://schema.org/MonetaryAmount"
         }, 
-		    {
+		{
           "@id": "iot:TemperatureData"
         }, 
-		    {
+		{
           "@id": "iot:WindData"
         }, 
-		    {
+		{
           "@id": "iot:IlluminanceData"
-        }
+        },
+		{
+          "@id": "iot:ImmersionDepthData"
+        },
+		{
+		"@id": "PressureData"
+		},
+		{
+		"@id": "DensityData"
+		}
       ],
       "http://schema.org/rangeIncludes": {
         "@id": "http://schema.org/Number"
       },
       "rdfs:comment": "The upper value of some characteristic or property.",
       "rdfs:label": "maxValue"
+    },
+	{
+      "@id": "iot:providesOverflowStatusData",
+      "@type": "rdf:Property",
+      "rdfs:label": "providesOverflowStatusData",
+	  "rdfs:comment": "A property that relates an Interaction Pattern with its output OverflowStatusData.",
+      "schema:domainIncludes": {
+        "@id": "iot:OverflowStatus"
+      },
+	  "schema:rangeIncludes": {
+        "@id": "schema:Boolean"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesOutputData"
+      }
+    },
+	{
+      "@id": "iot:providesExpectedPressure",
+      "@type": "rdf:Property",
+      "rdfs:label": "providesExpectedPressure",
+	  "rdfs:comment": "A property that relates an Interaction Pattern with its output ExpectedPressureData.",
+      "schema:domainIncludes": {
+        "@id": "iot:ExpectedPressure"
+      },
+	  "schema:rangeIncludes": {
+        "@id": "iot:PressureData"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesOutputData"
+      }
+    },
+	{
+      "@id": "iot:providesExpectedDensity",
+      "@type": "rdf:Property",
+      "rdfs:label": "providesExpectedDensity",
+	  "rdfs:comment": "A property that relates an Interaction Pattern with its output ExpectedDensityData.",
+      "schema:domainIncludes": {
+        "@id": "iot:ExpectedDensity"
+      },
+	  "schema:rangeIncludes": {
+        "@id": "iot:DensityData"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesOutputData"
+      }
+    },
+	{
+      "@id": "iot:providesExpectedAmbientTemperature",
+      "@type": "rdf:Property",
+      "rdfs:label": "providesExpectedAmbientTemperature",
+	  "rdfs:comment": "A property that relates an Interaction Pattern with its output ExpectedAmbientTemperatureData.",
+      "schema:domainIncludes": {
+        "@id": "iot:ExpectedAmbientTemperature"
+      },
+	  "schema:rangeIncludes": {
+        "@id": "iot:TemperatureData"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesOutputData"
+      }
+    },
+	{
+      "@id": "iot:providesExpectedFloatImmersionDepth",
+      "@type": "rdf:Property",
+      "rdfs:label": "providesExpectedFloatImmersionDepth",
+	  "rdfs:comment": "A property that relates an Interaction Pattern with its output ImmersionDepthData.",
+      "schema:domainIncludes": {
+        "@id": "iot:ExpectedFloatImmersionDepth"
+      },
+	  "schema:rangeIncludes": {
+        "@id": "iot:ImmersionDepthData"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesOutputData"
+      }
+    },
+    {
+		"@id": "iot:PressureData",
+		"@type": "rdfs:Class",
+		"rdfs:comment": "Pressure data.",
+		"rdfs:label": "PressureData",
+		"rdfs:subClassOf": { "@id": "schema:PropertyValue" }
+    },
+    {
+		"@id": "iot:DensityData",
+		"@type": "rdfs:Class",
+		"rdfs:comment": "Density data.",
+		"rdfs:label": "DensityData",
+		"rdfs:subClassOf": { "@id": "schema:PropertyValue" }
+    },	
+    {
+		"@id": "iot:ImmersionDepthData",
+		"@type": "rdfs:Class",
+		"rdfs:comment": " Liquid immersion depth data.",
+		"rdfs:label": "ImmersionDepthData",
+		"rdfs:subClassOf": { "@id": "schema:PropertyValue" }
+    },
+	{
+      "@id": "iot:levelUnitCode", 
+      "@type": "rdf:Property",
+      "rdfs:label": "levelUnitCode",
+	  "rdfs:comment": "A property that relates Level-related data with its unit.",
+      "schema:domainIncludes": {
+        "@id": "iot:ImmersionDepthData"
+      },
+      "schema:rangeIncludes": {
+        "@id": "iot:LevelUnit"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "schema:unitCode"
+      }
+    },
+	{
+      "@id": "iot:pressureUnitCode", 
+      "@type": "rdf:Property",
+      "rdfs:label": "pressureUnitCode",
+	  "rdfs:comment": "A property that relates PressureData with its unit.",
+      "schema:domainIncludes": {
+        "@id": "iot:PressureData"
+      },
+      "schema:rangeIncludes": {
+        "@id": "iot:PressureUnit"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "schema:unitCode"
+      }
+    },
+	{
+      "@id": "iot:densityUnitCode", 
+      "@type": "rdf:Property",
+      "rdfs:label": "densityUnitCode",
+	  "rdfs:comment": "A property that relates DensityData with its unit.",
+      "schema:domainIncludes": {
+        "@id": "iot:DensityData"
+      },
+      "schema:rangeIncludes": {
+        "@id": "iot:DensityUnit"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "schema:unitCode"
+      }
     }
   ]
 }

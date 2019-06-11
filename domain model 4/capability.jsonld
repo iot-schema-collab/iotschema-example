@@ -42,27 +42,35 @@
 		"rdfs:label": "Thermostat",
 		"iot:domain": {"@id": "iot:Common"}
 	},
-  {
-  "@id": "iot:IlluminanceSensing",
-  "@type": "rdfs:Class",
-  "rdfs:subClassOf": { "@id": "iot:Capability" },
-  "rdfs:comment": "Sensed luminous flux per unit area in lux.",
-  "rdfs:label": "IlluminanceSensing",
-  "iot:domain": [
-    {"@id": "iot:Home"},
-    {"@id": "iot:Building"}
-    ]
-  },
-  {
+	{
+		"@id": "iot:IlluminanceSensing",
+		"@type": "rdfs:Class",
+		"rdfs:subClassOf": { "@id": "iot:Capability" },
+		"rdfs:comment": "Sensed luminous flux per unit area in lux.",
+		"rdfs:label": "IlluminanceSensing",
+		"iot:domain": [
+			{"@id": "iot:Home"},
+			{"@id": "iot:Building"}
+		]
+	},
+	{
 		"@id": "iot:MotionControl",
 		"@type": "rdfs:Class",
 		"rdfs:subClassOf": { "@id": "iot:Capability" },
-		"rdfs:comment": "Presence (motion) sensing capability",
+		"rdfs:comment": "Presence (motion) sensing capability.",
 		"rdfs:label": "MotionControl",
 		"iot:domain": [
 			{"@id": "iot:Home"},
 			{"@id": "iot:Building"}
-			]
+		]
+	},
+	{
+		"@id": "iot:FloatSwitch",
+		"@type": "rdfs:Class",
+		"rdfs:subClassOf": { "@id": "iot:Capability" },
+		"rdfs:comment": "A capability of a float switch.",
+		"rdfs:label": "FloatSwitch",
+		"iot:domain": {"@id": "iot:Industry"}
 	},
 	{
       "@id": "iot:temperature",
@@ -277,6 +285,91 @@
       ],
       "schema:rangeIncludes": {
         "@id": "iot:MotionType"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesInteractionPattern"
+      }
+    },
+	{
+      "@id": "iot:overflowStatus",
+      "@type": "rdf:Property",
+      "rdfs:label": "overflowStatus",
+	  "rdfs:comment": "A property that relates a capability with its OverflowStatus interaction pattern.",
+      "schema:domainIncludes": [
+        {
+          "@id": "iot:FloatSwitch"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "iot:OverflowStatus"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesInteractionPattern"
+      }
+    },
+	{
+      "@id": "iot:expectedPressure",
+      "@type": "rdf:Property",
+      "rdfs:label": "expectedPressure",
+	  "rdfs:comment": "A property that relates a capability with its ExpectedPressure interaction pattern.",
+      "schema:domainIncludes": [
+        {
+          "@id": "iot:FloatSwitch"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "iot:ExpectedPressure"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesInteractionPattern"
+      }
+    },
+	{
+      "@id": "iot:expectedDensity",
+      "@type": "rdf:Property",
+      "rdfs:label": "expectedDensity",
+	  "rdfs:comment": "A property that relates a capability with its ExpectedDensity interaction pattern.",
+      "schema:domainIncludes": [
+        {
+          "@id": "iot:FloatSwitch"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "iot:ExpectedDensity"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesInteractionPattern"
+      }
+    },
+	{
+      "@id": "iot:expectedAmbientTemperature",
+      "@type": "rdf:Property",
+      "rdfs:label": "expectedAmbientTemperature",
+	  "rdfs:comment": "A property that relates a capability with its ExpectedAmbientTemperature interaction pattern.",
+      "schema:domainIncludes": [
+        {
+          "@id": "iot:FloatSwitch"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "iot:ExpectedAmbientTemperature"
+      },
+	  "rdfs:subPropertyOf": {
+        "@id": "iot:providesInteractionPattern"
+      }
+    },
+	{
+      "@id": "iot:expectedFloatImmersionDepth",
+      "@type": "rdf:Property",
+      "rdfs:label": "expectedFloatImmersionDepth",
+	  "rdfs:comment": "A property that relates a capability with its ExpectedFloatImmersionDepth interaction pattern.",
+      "schema:domainIncludes": [
+        {
+          "@id": "iot:FloatSwitch"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "iot:ExpectedFloatImmersionDepth"
       },
 	  "rdfs:subPropertyOf": {
         "@id": "iot:providesInteractionPattern"
